@@ -9,7 +9,7 @@ const getDirectories = source =>
     .map(dirent => dirent.name);
 
 
-const products = getDirectories(`${__dirname}/${PRODUCTS_PATH}/`).map(productDir => ({
+const productsRaw = getDirectories(`${__dirname}/${PRODUCTS_PATH}/`).map(productDir => ({
   product: require(`${__dirname}/${PRODUCTS_PATH}/${productDir}`),
   productDir: `${PRODUCTS_PATH}/${productDir}`
 })).map((data, id) => ({
@@ -21,13 +21,17 @@ const products = getDirectories(`${__dirname}/${PRODUCTS_PATH}/`).map(productDir
   price: data.product.цена
 }));
 
-const tags = products
+const tags = _.uniq(productsRaw.flatMap(p => p.tags)).map((t, i) => ({
+  id: i,
+  name: t
+}));
+
+const products = productsRaw.map(pr => ({
+  ...pr,
+  tags: pr.tags.map(t => tags.find(tag => tag.name === t))
+}));
 
 module.exports = {  
-  products
-}  
-
-
-
-
-
+  products,
+  tags
+}

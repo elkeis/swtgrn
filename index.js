@@ -1,6 +1,9 @@
 const express = require('express');
 const path = require('path');
-const products = require('./data')
+const {
+  products,
+  tags
+} = require('./data')
 
 const app = express();
 
@@ -20,6 +23,10 @@ app.get('/api/test', (req, res) => {
 
 app.get('/api/products', (req, res) => {
   res.json(products);
+});
+
+app.get('/api/tags', (req, res) => {
+  res.json(tags);
 });
 
 // The "catchall" handler: for any request that doesn't
