@@ -1,0 +1,72 @@
+@import 'src/constants.scss';
+
+.ShoppingCart {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+    &.default-view {
+        >.padding >.products {
+            @media screen and (min-width: $MEDIA_BREAK_MOBILE) and (max-width: $MEDIA_BREAK_SMALL_SCREEN){
+                flex-wrap: wrap;
+                flex-direction: row;
+
+                >div {
+                    width: 50%;
+
+                    &.no-products {
+                        width: 100%;
+                    }
+                }
+            }
+
+            @media screen and (min-width: $MEDIA_BREAK_SMALL_SCREEN) {
+                flex-wrap: wrap;
+                flex-direction: row;
+
+                >div {
+                    width: (100%/3);
+
+                    &.no-products {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    >.padding {
+        padding: 24px 24px;
+
+        >.products {
+            box-sizing: border-box;
+            height: 100%;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            align-items: center;
+
+            >.no-products {
+                height: 100%;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        >.footer {
+            box-sizing: border-box;
+            padding-bottom: 24px;
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &.hide {
+                display: none;
+            }
+        }
+    }
+
+
+}

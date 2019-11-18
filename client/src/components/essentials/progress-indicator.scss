@@ -1,0 +1,51 @@
+@import 'src/constants.scss';
+
+@keyframes done {
+    0% {
+        width: 0;
+        height: 0;
+        background-color: lighten($color: $OLIVE, $amount: 10);
+    }
+
+    100% {
+        width: 30px;
+        height: 30px;
+        background-color: $OLIVE;
+    }
+}
+
+.ProgressIndicator {
+    height: 30px;
+    width: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(1);
+
+    .bg {
+        border-radius: 100%;
+        position: absolute;
+        width: 0;
+        height: 0;
+        background: $OLIVE;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &.done {
+        filter: grayscale(0);
+
+        >i {
+            z-index: 1000;
+        }
+
+        .bg {
+            animation: done .3s;
+            width: 30px;
+            height: 30px;
+        }
+    }
+}

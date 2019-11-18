@@ -1,0 +1,47 @@
+@import 'src/constants.scss';
+
+.SidePane {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+
+    box-sizing: border-box;
+    padding: 72px 0 0 0;
+    overflow: scroll;
+
+    background: white;
+
+    opacity: .95;
+    @media screen and (min-width: $MEDIA_BREAK_MOBILE) {
+
+    }
+
+    transition: transform .5s;
+
+    z-index: 500;
+    &.ltr {
+
+        @media screen and (min-width: $MEDIA_BREAK_MOBILE) {
+            &.ltr {
+                right: 0;
+                left: auto;
+
+                &.hide {
+                    transform: translateX(100%);
+                }
+            }
+        }
+        left:0;
+        &.hide {
+            transform: translateX(-100%);
+        }
+    }
+
+    &.rtl {
+        right: 0;
+        &.hide {
+            transform: translateX(100%);
+        }
+    }
+}

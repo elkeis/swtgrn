@@ -1,0 +1,31 @@
+.m {
+    /*134 Glass Water*/
+    &.-glass_water{
+        // background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+        background-image: linear-gradient(-20deg, #dfe9f3 0%, white 100%);
+    }
+    
+    &.-glass_water2{
+        // background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+        background-image: linear-gradient(-40deg, #efdff3 0%, white 100%);
+    }
+    
+    &.-glass_water0{
+        // background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+        background-image: linear-gradient( -19deg, #e4eef5 0%, white 100%);
+    }
+
+    /*131 African Field*/
+    &.-african_field{
+        background-image: linear-gradient(-45deg, #FFC796 0%, #FF6B95 100%);
+    }
+
+    &.-marble_wall{
+        background-image: linear-gradient(to top, #bdc2e8 0%, #bdc2e8 1%, #e6dee9 100%);
+    }
+
+    /*088 Over Sun*/
+    &.-over_sun{
+        background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+    }
+}

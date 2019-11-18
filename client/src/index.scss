@@ -1,0 +1,90 @@
+@import "./fonts/index";
+@import "./mixins/fonts";
+@import "./mixins/structure";
+@import "./components/icons/icons.scss";
+@import 'src/constants.scss';
+
+body {
+    @include f-1();
+}
+
+* {
+    text-transform: uppercase;
+    font-size: inherit;
+    margin: 0;
+    padding: 0;
+
+    user-select: none;
+
+    input, textarea {
+        user-select: auto;
+        text-transform: none;
+        @include f-1();
+    }
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+// structs
+
+.stack {
+    @include stack(0px);
+}
+
+.grid-2c {
+    @include grid-2c(10px);
+}
+
+.shelf {
+    @include shelf(10px);
+}
+
+.-centrify {
+    @include -centrify();
+}
+
+.-stretch {
+    @include -stretch();
+}
+
+.c {
+    // >div {
+    //     height: 100vh;
+    //     background: white;
+    //     margin-top: 10px;
+    //     opacity: .8;
+    // }
+}
+
+// .App {
+//     overflow: hidden;
+//     width: 100vw;
+//     .content {
+//         display: flex;
+//         flex-direction: row;
+//         justify-content: space-evenly;
+//         overflow: hidden;
+//         height: 100vh;
+//         width: 300vw;
+//         padding-top: 60px;
+//         transition: all .5s;
+
+//         transform: translateX(25%);
+//     }
+
+//     .middle, .left, .right {
+//         width: 100%;
+//     }
+
+//     .left {
+//         background: palevioletred;
+//     }
+//     .middle {
+//         background: pink;
+//     }
+//     .right {
+//         background: peachpuff;
+//     }
+// }

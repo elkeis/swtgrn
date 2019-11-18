@@ -1,0 +1,109 @@
+@import 'src/constants.scss';
+
+$transition_time: .6s;
+
+.Layout {
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    >.starting-screen,
+    >.catalog>.header {
+        z-index: 1000;
+    }
+
+    >.starting-screen {
+        width: 100%;
+        height: 100vh;
+        background: white;
+
+        max-width: 600px;
+
+        &.hide {
+            display: none;
+        }
+    }
+
+    >.catalog {
+        width: 100%;
+
+
+        &.stop-scroll {
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        >.header {
+            position: sticky;
+            top: 0;
+        }
+
+        >.body {
+            width: 100%;
+            min-height: 100vh;
+            overflow: hidden;
+
+            >.content {
+
+                @media screen and (min-width: $MEDIA_BREAK_SMALL_SCREEN) {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+
+                    >* {
+                        width: (100vw/3);
+                    }
+                }
+
+                @media screen and (min-width: $MEDIA_BREAK_MOBILE) and (max-width: $MEDIA_BREAK_SMALL_SCREEN) {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+
+                    >* {
+                        width: (100vw/2);
+                    }
+                }
+            }
+
+        }
+    }
+
+    >.shopping-cart-container {
+        margin-top: 100px;
+        width: 100%;
+        box-sizing: border-box;
+        z-index: 1000;
+        background: white;
+
+        >.header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 12px;
+            height: 60px;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 2000;
+            box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        &.hide {
+            display: none;
+        }
+    }
+
+    .checkout-form-container {
+        margin-top: 100px;
+        background: white;
+        width: 100%;
+
+        &.hide {
+            display: none;
+        }
+    }
+}

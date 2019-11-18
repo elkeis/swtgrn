@@ -1,0 +1,58 @@
+@mixin stack($margin) {
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+
+    > * {
+        margin-bottom: $margin;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@mixin shelf($margin) {
+    display: flex;
+    flex-direction: row;
+
+    > * {
+        margin-right: $margin;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+@mixin -centrify {
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin -stretch {
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+@mixin grid-2c($padding) {
+    display: grid;
+    grid-template-columns: auto auto;
+    row-gap: $padding;
+    column-gap: $padding;
+
+    >* {
+        width: 100%;
+        height: 50vw;
+    }
+}
+
+@mixin grid-1c($padding) {
+    display: grid;
+    grid-template-columns: auto;
+    row-gap: $padding;
+    column-gap: $padding;
+
+    >* {
+        width: 100%;
+        height: 100vw;
+    }
+}

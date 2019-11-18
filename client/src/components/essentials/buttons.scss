@@ -1,0 +1,194 @@
+@import 'src/constants.scss';
+
+$transition-time: .3s;
+$button-height: 50px;
+
+$noshadow: inset 0px 0px 0px #00000000, 0px 0px 0px #00000000;
+$small-button-shadow: 4px 4px 8px #00000019;
+
+
+@keyframes showButton {
+    0% {
+        opacity: 0;
+        transform: translateZ(0);
+        box-shadow: $noshadow;
+    }
+
+    25% {
+        opacity: 1;
+        transform: translateZ(0);
+        box-shadow: $noshadow;
+    }
+
+    40% {
+        opacity: 1;
+        transform: translateZ(0);
+        box-shadow: $noshadow;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateZ(10px);
+        box-shadow: inset 0px 0px 0px #00000020, 4px 4px 8px #00000019;
+    }
+}
+
+@mixin smallAero {
+
+    background: #FFFFFF8A;
+    width: 30px;
+    height: 30px;
+    box-shadow: 4px 4px 8px #00000019;
+    transition: all $transition_time;
+
+    >i {
+        margin-top: 4px;
+    }
+
+    &.touched, &:active {
+        transform: translateZ(0px);
+        box-shadow: 1px 1px 0px #00000023;
+        transition: all 0s;
+    }
+}
+
+@mixin bigAero {
+    height: 56px;
+    width: 56px;
+    box-shadow: 5px 5px 13px #00000013;
+    overflow: hidden;
+
+    >i {
+        margin-top: 7px;
+    }
+
+    &.touched, &:active, &[disabled] {
+        transform: translateZ(0px);
+        box-shadow: 1px 1px 1px #00000023;
+        background: white;
+        transition: all 0s;
+    }
+}
+
+.AeroTumbler, .AeroButton, .AeroButtonAdd {
+    // perspective: 512px;
+
+    button {
+        outline: none;
+        border-color: none;
+        border-width: 0;
+        border-radius: 100%;
+        background: white;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+        transform: translateZ($button-height);
+        transition: all ease-out $transition_time;
+    }
+}
+
+.AeroTumbler > button {
+    @include smallAero();
+
+    transition: all ease-out $transition_time/2;
+    transform: translateZ(10px);
+
+    box-shadow: inset 0px 0px 0px #00000020, 4px 4px 8px #00000019;;
+
+    &.touched, &:active, &.on {
+        transform: translateZ(0px);
+        box-shadow: inset 1px 1px 2px #00000030, 4px 4px 8px #0000000a;
+        transition: all 0s;
+    }
+
+    &.hidden {
+        visibility: hidden;
+    }
+
+    &.shown {
+        visibility: visible;
+        animation: showButton ease-out $transition_time * 3;
+    }
+}
+
+.AeroButton {
+    > button {
+        @include bigAero();
+    }
+
+    &.disabled {
+        filter: grayscale(1);
+        > button {
+
+        }
+    }
+}
+
+
+.AeroButton.small > button {
+    @include smallAero();
+}
+
+.AeroButtonAdd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .icons {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: white;
+
+        > i {
+            transition: opacity $transition_time;
+
+            &.default {
+                position: absolute;
+                opacity: 1;
+            }
+
+            &.alternate {
+                visibility: hidden;
+            }
+        }
+
+        &.clicked {
+            &.highlight {
+                background: $OLIVE;
+            }
+            > i {
+                &.default {
+                    visibility: hidden;
+                    opacity: 0;
+                }
+
+                &.alternate {
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
+    >.addition {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        > div {
+            visibility: hidden;
+            &.show {
+                visibility: visible;
+                transform: translate3d(-55px, -10px, 0);
+            }
+
+            transition: all $transition_time;
+        }
+    }
+}

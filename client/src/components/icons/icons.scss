@@ -1,0 +1,120 @@
+i {
+    display: inline-block;
+    // margin-top: 5px;
+    height: 24px;
+    width: 24px;
+    fill: green;
+
+    background-size: 75%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &.brand {
+        height: 48px;
+        width: 48px;
+        background: url('./png/brand4x.png');
+        background-size: 100%;
+    }
+
+    &.shopping-cart {
+        background-position-x: 40%;
+        background-position-y: 50%;
+        background-image: url('./svg/shopping-cart-outline.svg');
+    }
+
+    &.eye-off {
+        background-image: url('./svg/eye-off-2-outline.svg');
+    }
+
+    &.plus {
+        background-image: url('./svg/plus-outline.svg');
+    }
+
+    &.plus-white {
+        background-image: url('./svg-white/plus-outline.svg');
+    }
+
+    &.shopping-bag {
+        background-image: url('./svg/shopping-bag-outline.svg');
+    }
+
+    &.checkmark {
+        background-image: url('./svg/checkmark-outline.svg');
+    }
+
+    &.checkmark-white {
+        background-image: url('./svg-white/checkmark-outline.svg');
+    }
+
+    &.pricetag {
+        background-image: url('./svg/pricetags-outline.svg');
+    }
+
+    &.eye {
+        background-image: url('./svg/eye-outline.svg');
+    }
+
+    &.eye-off {
+        background-image: url('./svg/eye-off-2-outline.svg');
+    }
+
+    &.phone {
+        background-image: url('./svg/phone-outline.svg');
+    }
+
+    &.phone-white {
+        background-image: url('./svg-white/phone-outline.svg');
+    }
+
+    &.email {
+        background-image: url('./svg/email-outline.svg');
+    }
+
+    &.email-white {
+        background-image: url('./svg-white/email-outline.svg');
+    }
+
+    &.instagram {
+        background-image: url('./svg/instagram.svg');
+    }
+
+    &.instagram-white {
+        background-image: url('./svg-white/instagram.svg');
+    }
+
+    &.flash {
+        background-image: url('./svg/flash-outline.svg');
+    }
+
+    &.car {
+        background-image: url('./svg/car-outline.svg');
+    }
+
+    &.minus {
+        background-size: 70%;
+        background-image: url('./svg/minus-outline.svg');
+    }
+
+    &.pie-piece {
+        height: 25px;
+        width: 30px;
+        background-size: 100%;
+        background-position: center;
+        background-image: url('./png/pie-piece-final.png');
+    }
+
+
+
+
+    &.logo {
+        background-image: url('./svg/Big\ Logo.svg');
+        height: 100%;
+        width: 100%;
+    }
+
+    &.logo-text {
+        background-image: url('./png/logo-text.png');
+        height: 100%;
+        width: 100%;
+    }
+}

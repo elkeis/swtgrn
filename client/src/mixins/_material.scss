@@ -1,0 +1,33 @@
+@mixin m-m-color($color) {
+    background: $color;
+}
+
+
+@mixin m-glass-water1 () {
+    // background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+    background-image: linear-gradient(-20deg, #dfe9f3 0%, white 100%);
+}
+
+@mixin m-glass-water2 () {
+    // background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+    background-image: linear-gradient(-40deg, #efdff3 0%, white 100%);
+}
+
+@mixin m-glass-water0 () {
+    // background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+    background-image: linear-gradient( -19deg, #e4eef5 0%, white 100%);
+}
+
+/*131 African Field*/
+@mixin m-african-field () {
+    background-image: linear-gradient(-45deg, #FFC796 0%, #FF6B95 100%);
+}
+
+@mixin m-marble-wall () {
+    background-image: linear-gradient(to top, #bdc2e8 0%, #bdc2e8 1%, #e6dee9 100%);
+}
+
+/*088 Over Sun*/
+@mixin m-over-sun () {
+    background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+}

@@ -1,0 +1,14 @@
+.Events {
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+    padding: 24px;
+
+    >* {
+        box-shadow: 5px 5px 13px #00000013;
+        margin-bottom: 24px;
+    }
+
+
+}
