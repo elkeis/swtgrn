@@ -1,16 +1,25 @@
 const express = require('express');
 const path = require('path');
+const products = require('./data')
 
 const app = express();
 
+console.log(products);
+
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'data')));
 
 // Put all API endpoints under '/api'
 app.get('/api/test', (req, res) => {
   res.json({
     test: 'success'
   });
+});
+
+
+app.get('/api/products', (req, res) => {
+  res.json(products);
 });
 
 // The "catchall" handler: for any request that doesn't
