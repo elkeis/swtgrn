@@ -1,5 +1,5 @@
 import React from 'react';
-import { TTag } from '../../services';
+import { Tag as TTag } from '../../services';
 
 export interface ITag {
     value: TTag,

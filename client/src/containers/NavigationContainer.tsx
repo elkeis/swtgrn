@@ -63,7 +63,7 @@ export const NavigationContainer:React.FC = () => {
                 header={
                     <div className="header-container">
                         <Header
-                            shoppingCartItemsCount={productCards.list.map(c => c.addedCount).reduce((sum, v) => sum + v)}
+                            shoppingCartItemsCount={productCards.list.map(c => c.addedCount).reduce((sum, v) => sum + v, 0)}
                             selectedTagsCount={tags.selected.length}
                             showTumblers={navigation.header.showTumblers}
                             byToggle={tumbler => dispatch(setCatalogActiveView(tumblerViewMap[tumbler]))}

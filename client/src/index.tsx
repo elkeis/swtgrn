@@ -4,21 +4,24 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
 
-import { store, fetchInitialDataAsync } from './store';
+import { store } from './store';
 import {
     Provider
 } from 'react-redux';
 
 
-store.dispatch<any>(fetchInitialDataAsync());
-
+const client = new ApolloClient();
 console.log('build updated');
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
+    <ApolloProvider client={client}>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </ApolloProvider>,
     document.getElementById('root')
 );
 

@@ -7,6 +7,7 @@ import {
 import {
     intersection
 } from 'lodash';
+
 import { IProductCard } from "../components";
 
 /**

@@ -1,33 +1,69 @@
 const express = require('express');
 const path = require('path');
+
+const { 
+  ApolloServer, 
+  gql 
+} = require('apollo-server-express');
+
 const {
   products,
   tags
 } = require('./data')
 
+
+// Graphql API
+const typeDefs = gql`
+  # Product tags (e.g. ingridients )
+  type Tag {
+    id: ID!,
+    name: String,
+  }
+
+  # Product type itself
+  type Product {
+    id: ID!,
+    imageUrl: String,
+    name: String,
+    description: String,
+    tags: [Tag],
+    price: String,
+  }
+
+  # The "Query" type is special: it lists all of the available queries that
+  # clients can execute, along with the return type for each. In this
+  # case, the "books" query returns an array of zero or more Books (defined above).
+  type Query {
+    products: [Product],
+    tags: [Tag]
+  }
+`;
+
+const resolvers = {
+  Query: {
+    products: () => products,
+    tags: () => tags
+  }
+}
+
 const app = express();
 
-console.log(products);
-
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
-app.use(express.static(path.join(__dirname, 'data')));
-
-// Put all API endpoints under '/api'
-app.get('/api/test', (req, res) => {
+// Expres API
+app.get('/api/heartbeat', (req, res) => {
   res.json({
-    test: 'success'
+    isAlive: true
   });
 });
 
-
-app.get('/api/products', (req, res) => {
-  res.json(products);
+app.post('/api/order', (req, res) => {
+  console.log(req.body.json());
 });
 
-app.get('/api/tags', (req, res) => {
-  res.json(tags);
-});
+
+// host static files (site and images)
+app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'data')));
+
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
@@ -36,6 +72,9 @@ app.get('*', (req, res) => {
 });
 
 const port = process.env.PORT || 5000;
-app.listen(port);
+const server = new ApolloServer({ typeDefs, resolvers });
+server.applyMiddleware({ app });
 
-console.log(`sweetgreen.by is listening on port:${port}`);
+app.listen({ port }, () => {
+  console.log(`🚀 Server ready at http://localhost:${port}${server.graphqlPath}`);
+});

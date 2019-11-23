@@ -1,2 +1,4 @@
-export * from './fetch';
-export * from './fetchers';
+export * from './dataQuery';
+export * from './types';
+
+

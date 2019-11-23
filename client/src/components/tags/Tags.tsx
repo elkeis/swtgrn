@@ -2,7 +2,7 @@ import './tags.scss';
 import React, { useMemo } from 'react';
 import { Tag } from './Tag';
 import { ProductsCount } from './ProductsCount';
-import { TTag } from '../../services';
+import { Tag as TTag } from '../../services';
 
 export interface ITags {
     all?: Array<TTag>,

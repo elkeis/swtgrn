@@ -4,7 +4,7 @@ import { Layover } from './Layover';
 import { debounce } from 'lodash';
 
 import {
-    TProduct
+    Product
 } from '../../services';
 import { TagList } from '../tags';
 
@@ -12,7 +12,7 @@ const url = require('./images/pie-optimized_f2.jpg');
 
 export interface IProductCard {
     id: number
-    product: TProduct
+    product: Product
     addedCount: number,
     byCountUpdate?: (newCount: number) => any | undefined
 }

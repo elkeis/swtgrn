@@ -1,6 +1,6 @@
 import React from 'react';
 import './tag-list.scss';
-import { TTag } from '../../services';
+import { Tag as TTag } from '../../services';
 
 export interface ITagList {
     tags?: Array<TTag>
