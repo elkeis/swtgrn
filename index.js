@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser');
 
 const { 
   ApolloServer, 
@@ -47,6 +48,7 @@ const resolvers = {
 }
 
 const app = express();
+app.use(bodyParser.json());
 
 // Expres API
 app.get('/api/heartbeat', (req, res) => {
@@ -55,8 +57,10 @@ app.get('/api/heartbeat', (req, res) => {
   });
 });
 
+
 app.post('/api/order', (req, res) => {
-  console.log(req.body.json());
+  console.log(req.body);
+  res.json('ok');
 });
 
 

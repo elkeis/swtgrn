@@ -30,15 +30,46 @@ export interface ICheckoutFormContainer {
 
 }
 
+interface PostData {
+    name: string,
+    phone: string,
+    email: string,
+    deliveryInfo: string,
+    isSelfDelivery: boolean,
+    products: Array<IProductCard>
+}
+
+async function post(data: PostData)  {
+    const resp = await fetch('/api/order/', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        mode: 'same-origin',
+        body: JSON.stringify(data)
+    });
+    return await resp.json();
+}
+
 export const CheckoutFormContainer:React.FC<ICheckoutFormContainer> = () => {
     const checkoutForm = useSelector<$App, $CheckoutForm>(state => state.checkoutForm);
     const checkoutInfo = useSelector<$App, $CheckoutFormFirstBlock>(state => state.checkoutForm.firstBlock);
     const checkoutAddress = useSelector<$App, $ChekcoutFormAddressBlock>(state => state.checkoutForm.addressBlock);
     const checkoutDoubleCheck = useSelector<$App, $CheckoutFormFinalBlock>(state => state.checkoutForm.finalBlock);
-
     const products = useSelector<$App, Array<IProductCard>>(state => state.productCards.list.filter(p => p.addedCount > 0));
-
     const dispatch = useDispatch();
+
+    const acceptForm = () => {
+        post({
+            name: checkoutInfo.name.value,
+            phone: checkoutInfo.phone.value,
+            email: checkoutInfo.email.value,
+            deliveryInfo: checkoutAddress.deliveryInfo.value,
+            isSelfDelivery: checkoutAddress.isSelfDelivery,
+            products: products
+        }).then(() => dispatch(acceptFinalCheckoutBlock()));
+    }
 
     return <>
         <CheckoutForm
@@ -102,7 +133,7 @@ export const CheckoutFormContainer:React.FC<ICheckoutFormContainer> = () => {
                     email={checkoutInfo.email.value}
                     address={checkoutAddress.deliveryInfo.value}
                     isSelfDelivery={checkoutAddress.isSelfDelivery}
-                    byAccept={() => dispatch(acceptFinalCheckoutBlock())}
+                    byAccept={() => acceptForm()}
                 >
                 </CheckoutDoublecheckBlock>
             }
