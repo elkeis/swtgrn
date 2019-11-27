@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import {
-    NavigationContainer
+    NavigationContainer, UrlRoutingContainer
 } from './containers';
 import { useDataQuery } from './services';
 import { useDispatch } from 'react-redux';
@@ -41,7 +41,8 @@ const App: React.FC = () => {
 
     return (
         <div className="App">
-            <NavigationContainer></NavigationContainer>
+            {/* <NavigationContainer></NavigationContainer> */}
+            <UrlRoutingContainer></UrlRoutingContainer>
         </div>
     )
 }
