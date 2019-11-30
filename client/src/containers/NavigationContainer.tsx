@@ -73,8 +73,6 @@ export const NavigationContainer:React.FC = () => {
                     </div>
                 }
 
-                isSidePaneOpen={navigation.catalog.activeView !== CatalogView.CATALOG}
-
                 catalog={
                     <>
                         <SidePane
@@ -115,7 +113,6 @@ export const NavigationContainer:React.FC = () => {
                                 <Events events={events.list}></Events>
                             </>
                         </SidePane>
-
                     </>
                 }
 
@@ -125,14 +122,6 @@ export const NavigationContainer:React.FC = () => {
                 }}
 
                 byScrollToCatalog={() => dispatch(setShowTumblers(true))}
-
-                shoppingCart={
-                    <ShoppingCartContainer></ShoppingCartContainer>
-                }
-
-                checkoutForm={
-                    <CheckoutFormContainer></CheckoutFormContainer>
-                }
 
                 startingScreen={
                     <i className="logo"></i>

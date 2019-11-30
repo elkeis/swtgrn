@@ -13,8 +13,6 @@ export interface ILayout {
     startingScreen?: JSX.Element,
     header?: JSX.Element,
     catalog?: JSX.Element,
-    shoppingCart?: JSX.Element,
-    checkoutForm?: JSX.Element,
 
     byScrollToCatalog?: () => any,
     byScrollToTop?: () => any,
@@ -25,12 +23,9 @@ export const Layout:React.FC<ILayout> = ({
     startingScreen = <div>starting screen</div>,
     header = <div>catalog header</div>,
     catalog = <div>catalog body</div>,
-    shoppingCart = <div>shopping cart container</div>,
-    checkoutForm = <div>checkout form container </div>,
 
     byScrollToCatalog = () => console.debug('scrolled to catalog'),
     byScrollToTop = () => console.debug('scrolled to top'),
-    isSidePaneOpen = false,
 }) => {
 
     const catalogRef = useRef<any>();
@@ -77,27 +72,6 @@ export const Layout:React.FC<ILayout> = ({
                     {catalog}
                 </div>
             </div>
-        </div>
-        <div
-            className={[
-                'shopping-cart-container',
-                isOnStartingScreen ? 'hide' : 'show',
-                isSidePaneOpen ? 'hide' : 'show',
-            ].join(' ') }>
-
-            <div className="header">
-                <i className="shopping-cart"></i>
-            </div>
-
-            {shoppingCart}
-        </div>
-
-        <div className={[
-            'checkout-form-container',
-            isOnStartingScreen ? 'hide' : 'show',
-            isSidePaneOpen ? 'hide' : 'show',
-        ].join(' ') }>
-            {checkoutForm}
         </div>
     </div>
 }
