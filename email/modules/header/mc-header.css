@@ -1,0 +1,12 @@
+/*
+  @tab Top line
+  @section Container
+*/ .header, .header.header--transparent {
+  /* @editable */ border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+}
+
+/*
+  @tab Logo size
+*/ .header img {
+  /* @editable */ width: 116px !important;
+}

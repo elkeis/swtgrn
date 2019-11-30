@@ -1,0 +1,65 @@
+include ../../markup/grid
+include ../../atoms/atoms
+
+mixin header(options)
+  if PROD
+    style: include:stylus header.styl
+  
+  - let headerClass = "header"
+
+  if options.transparent
+    - headerClass += " header--transparent "
+
+  if options.fullwidth
+    - headerClass += ` header--fullwidth `;
+
+  -
+    if (options.links && options.links.length > 1)
+      headerClass += " header--centered ";
+
+  +space(1)
+  //~~// Header module start \\~~
+  //———————————————————————————————————————————————
+
+  //- Module HTML code
+  +rowgap(24, 0)
+  if !options.inset
+    +container()(class=headerClass)
+      +col-2().header__logo
+        +image(options.image)
+        +rowgap(24).xs-hide
+
+      +col-2().header__links
+        +table("100%"): tr
+          if options.links
+            each link in options.links
+              th(width=30)
+              th.header__link
+                a(href=link.url mc:edit=`link_${link.text}`).h5= link.text
+          th(width=30)
+
+  else
+    +table()(class=headerClass): tr
+      th.header__logo
+        +image(options.image)
+        +rowgap(24)
+
+      th.header__links
+        +table("100%"): tr
+          if options.links
+            if options.links.length > 1
+              each link in options.links
+                th(width=30)
+                th.header__link
+                  a(href=link.url mc:edit=`link_${link.text}`).h5= link.text
+              th(width=30)
+
+            else
+              th.header__link.link-single
+                a(href=options.links[0].url mc:edit=`link_${options.links[0].text}`).h5= options.links[0].text
+
+        +rowgap(24)
+
+  //———————————————————————————————————————————————
+  //~~\\ Header module end //~~
+  +space(1)

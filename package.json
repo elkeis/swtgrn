@@ -6,7 +6,11 @@
   "dependencies": {
     "apollo-server-express": "^2.9.9",
     "express": "^4.15.3",
-    "lodash": "^4.17.15"
+    "jstransformer-stylus": "^1.5.0",
+    "lodash": "^4.17.15",
+    "pug": "^2.0.4",
+    "pug-filters": "^3.1.1",
+    "stylus": "^0.54.7"
   },
   "scripts": {
     "start": "node index.js",

@@ -1,0 +1,51 @@
+include ../../markup/grid
+include ../../atoms/atoms
+include ../bigbutton/bigbutton
+
+mixin charts(options)
+  if PROD
+    style: include:stylus charts.styl
+
+  +space(1)
+  //~~// charts module start \~~
+  //———————————————————————————————————————————————
+  +container()
+    +col-1()
+      .charts
+        +rowgap(37)
+        +h1(options.title).text-bold.charts__title
+        +rowgap(37, 26)
+
+        if ESType === "mailchimp"
+          +table(): tr(mc:repeatable="chart_item")
+            th.charts__image
+              +image({src: options.items[0].image, alt: options.items[0].title, width: "120"})
+            th.charts__info
+              +table(): tr
+                td.charts__number: +text(options.items[0].number)
+                td.charts__item-title: +text(options.items[0].title)(href="#chart-link").text.text-bold
+              +rowgap(12)
+
+              +text(options.items[0].description).text.bigger
+              +rowgap(30)
+
+        else
+          each item in options.items
+            +table()&attributes(attributes): tr(mc:repeatable="chart_item")
+              th.charts__image
+                +image({src: item.image, alt: item.title, width: "120"})
+              th.charts__info
+                +table(): tr
+                  td.charts__number: +text(item.number)
+                  td.charts__item-title: span.text-bold: a(href="#chart-link"): +text(item.title)
+                +rowgap(12)
+
+                +text(item.description).text.bigger
+                +rowgap(30)
+
+      +bigbutton(options.link)
+
+  //———————————————————————————————————————————————
+  //~~\ charts module end   //~~
+  +space(1)
+

@@ -1,0 +1,9 @@
+//- Creates newlines in output htlm for code separation because pug don't preserve newlines
+mixin space(lines)
+  - var size = lines || 4;
+  - var spacer = ''; i = 0;
+
+  while i <= lines
+    - spacer += '\n'; i++;
+
+  = spacer

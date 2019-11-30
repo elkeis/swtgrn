@@ -1,0 +1,22 @@
+mixin dglink(href, text)
+  include img
+  include ../markup/utils
+
+  span(mc:edit=`link_${text}_${randStr()}`)
+    a(href= href || "#link").dglink
+      span(style="padding-right: 10px")&attributes(attributes)!= text
+      +icon({src: "arrow.png", alt: "", width: "7"})
+
+
+mixin buttonlink(href, text, color)
+  include img
+
+  if ESType === "mailchimp"
+    a(href= href class=`buttonlink ${color ? color : "white"}`)
+      span(style="padding-right: 6px")&attributes(attributes)!= text
+      +icon({src: `arrow-${color ? color : "white"}-small.png`, alt: "", width: 5})
+
+  else
+    a(href= href class=`buttonlink ${color ? color : "white"}`)
+      span(style="padding-right: 6px")&attributes(attributes)!= text
+      +icon({src: `arrow-${color ? color : "white"}-small.png`, alt: "", width: 5})

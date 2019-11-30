@@ -1,0 +1,40 @@
+include ../../markup/grid
+include ../../atoms/atoms
+include ../ecommerce-item/ecommerce-item
+include ../bigbutton/bigbutton
+
+mixin ecommerce(options)
+  if PROD
+    style: include:stylus ecommerce.styl
+
+  - let rowsNum = Math.floor(options.items.length/3)
+  - let i = 0;
+
+  if ESType === "mailchimp"
+    - rowsNum = 1 // Limit rows by 1 for mailchimp repeatable section
+
+  +space(1)
+  //~~// ecommerce module start \~~
+  //———————————————————————————————————————————————
+  while i < rowsNum
+    +rowgap(30, 20)
+    +container("wide")(mc:repeatable="ecommerce_items")
+      if options.items[3*i]
+        +col-3().col-xs-half
+          +ecommerce-item(options.items[3*i]).item-first
+
+      if options.items[3*i + 1]
+        +col-3().col-xs-half
+          +ecommerce-item(options.items[3*i + 1]).item-middle
+
+      if options.items[3*i + 2]
+        +col-3()
+          +ecommerce-item(options.items[3*i + 2]).item-last
+
+    - i++;
+
+  +bigbutton(options.link)
+
+  //———————————————————————————————————————————————
+  //~~\ ecommerce module end   //~~
+  +space(1)

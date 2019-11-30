@@ -1,0 +1,70 @@
+extends ../markup/layout
+
+//- Modules files with mixins
+include ../modules/header/header
+include ../modules/notify-title/notify-title
+include ../modules/section/section
+include ../modules/orders-list/orders-list
+include ../modules/footer/footer
+
+block content
+
+  //- Header module. Object with image and link options
+  +header({
+    image: {
+      src: Tags.company.logo,
+      alt: Tags.company.name,
+      width: Tags.company.logow
+    },
+    
+    link: {
+      href: Tags.message.web,
+      text: `View in browser`
+    }
+  })
+
+
+  //- Title of confirmation. Object with info about order and link to ordes's page in shop
+  +notify-title({
+    orderName:   Tags.order.name,
+    title:       `Your order has been delivered`,
+    description: `Haven’t received your package yet? Let us know.`,
+
+    link: {
+      text: `View my order`,
+      href: Tags.order.link
+    }
+  })
+
+
+  //- Summary information about order: items, price and shipping method
+  +section("Order summary")
+
+    //- List of items in order
+    +orders-list([
+      {
+        image:     "notifications/img-1@2x.png",
+        title:     "HAY Design Outdoor Chair",
+        count:     1,
+        price:     "$409"
+      },
+      {
+        image:     "notifications/img-2@2x.png",
+        title:     "HAY Design Basic Wooden Stool",
+        count:     2,
+        price:     "$578"
+      },
+      {
+        image:     "notifications/img-3@2x.png",
+        title:     "BWO Yellow Lamp",
+        count:     "Unlimited",
+        price:     "$321",
+        price_old: "$450"
+      }
+    ])
+
+
+  +rowgap(23)
+  +footer()
+    p.h4.text-gray If you have any questions, please reply to this email or contact us at <br/>
+      a.link(href=`mailto:${Tags.company.email}`)= Tags.company.email

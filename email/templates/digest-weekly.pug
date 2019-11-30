@@ -1,0 +1,187 @@
+extends ../markup/layout
+
+//- Modules files with mixins
+include ../atoms/atoms
+include ../modules/header/header
+include ../modules/person/person
+include ../modules/section/section
+include ../modules/bigbutton/bigbutton
+include ../modules/digest-title/digest-title
+include ../modules/weekly-topic/weekly-topic
+include ../modules/weekly-pick/weekly-pick
+include ../modules/weekly-news/weekly-news
+include ../modules/weekly-top/weekly-top
+include ../modules/footer-socials/footer-socials
+include ../modules/footer/footer
+
+//- Grids
+include ../markup/grid
+
+block content
+  .bg-golden
+    +digest-title({
+      background: false,
+      offset: 64,
+      date: "July 10-16, 2017",
+      title: "Your favourite",
+      subtitle: "Weekly News Digest"
+    })
+      +header({
+        inset: true,
+        fullwidth: true,
+        transparent: true,
+        image: {
+          src: Tags.company.logo,
+          alt: Tags.company.name,
+          width: Tags.company.logow
+        },
+        links: [
+          {url: "#view-in-browser", text: "View in browser"}
+        ]
+      })
+
+
+
+  .bg-black
+    +weekly-topic({
+      title: "<b>Main Topic:</b> Snowden Archive – The Sidtoday Files",
+      link: {
+        url: "#weekly-main-topic",
+        text: "Read now"
+      }
+    })
+
+
+
+  .bg-white
+    +weekly-pick({
+      image: "news-main.png",
+      link: {
+        url: "#main-news-full",
+        text: "Read more"
+      },
+      title: "Emmanuel Macron’s EU Honeymoon is Nice While it Lasted",
+      description: "The world’s most popular drink (after water) is under threat. We already know much about the threat of climate change to staple crops such as wheat, maize and rice, but the impact on tea is just coming into focus."
+    })
+    +rowgap(32)
+    +person({
+      name: "Lenora Marsh",
+      info: "Journalist, Hong Kong lover",
+      photo: "user.png"
+    })
+
+    +rowgap(35)
+    +container(): +col-1(): hr
+    +rowgap(10)
+
+    +section()
+      +weekly-news({
+        items: [
+          {
+            image: "news-1.png",
+            description: "<b>Russia:</b> Choosing the Right Boutique in Los Angeles",
+            link: "#top-news-1"
+          },
+          {
+            image: "news-2.png",
+            description: "<b>Day in History:</b> The Surprising Popularity of Cigar Smoking…",
+            link: "#top-news-2"
+          },
+          {
+            image: "news-3.png",
+            description: "<b>Europe:</b> Coventry City Guide Including Coventry Hotels",
+            link: "#top-news-3"
+          },
+          {
+            image: "news-4.png",
+            description: "<b>Chasing:</b> Cost Cutting Ideas for your Wedding ",
+            link: "#top-news-4"
+          },
+          {
+            image: "news-5.png",
+            description: "<b>Economy:</b> Getting Cheap Airfare for Last Minute Travel",
+            link: "#top-news-1"
+          },
+          {
+            image: "news-6.png",
+            description: "<b>USA:</b> Business Travel with the Wife",
+            link: "#top-news-6"
+          }
+        ]
+      })
+
+    +rowgap(10)
+    +bigbutton({
+      url: "#pick-continue",
+      text: "Continue reading"
+    })
+    +rowgap(10)
+
+  +weekly-top({
+    title: "Top stories",
+    link: {
+      url: "#top-news",
+      text: "See full digest"
+    }
+  })
+  +rowgap(23)
+
+  +section()
+    +weekly-news({
+      items: [
+        {
+          image: "news-1.png",
+          description: "<b>Russia:</b> Choosing the Right Boutique in Los Angeles",
+          link: "#top-news-1"
+        },
+        {
+          image: "news-2.png",
+          description: "<b>Day in History:</b> The Surprising Popularity of Cigar Smoking…",
+          link: "#top-news-2"
+        },
+        {
+          image: "news-3.png",
+          description: "<b>Europe:</b> Coventry City Guide Including Coventry Hotels",
+          link: "#top-news-3"
+        },
+        {
+          image: "news-4.png",
+          description: "<b>Chasing:</b> Cost Cutting Ideas for your Wedding ",
+          link: "#top-news-4"
+        },
+        {
+          image: "news-5.png",
+          description: "<b>Economy:</b> Getting Cheap Airfare for Last Minute Travel",
+          link: "#top-news-1"
+        },
+        {
+          image: "news-6.png",
+          description: "<b>USA:</b> Business Travel with the Wife",
+          link: "#top-news-6"
+        }
+      ]
+    })
+    
+  +footer-socials({
+    title: "Follow us",
+    items: [
+      {icon: "icon-twitter-black.png",   link: "#twitter"},
+      {icon: "icon-instagram-black.png", link: "#instagram"},
+      {icon: "icon-facebook-black.png",  link: "#facebook"},
+      {icon: "icon-gplus-black.png",     link: "#gplus"},
+      {icon: "icon-dribbble-black.png",  link: "#dribbble"}
+    ]
+  })
+
+  +footer()
+    +table(): tr
+      td.mobile-block
+        +rowgap(0,10)
+        +h6("© 2016 Great Simple Studio. All rights reserved.").text-gray.align-left
+        +h6("674 Padberg Throughway Apt. 489, Sydney, Australia").text-gray.align-left
+        +rowgap(0,30)
+
+      td.mobile-block.align-right.mobile-align-left
+        a(href="#terms-and-conds").text-gray Terms and conditions
+        br
+        a(href="#privacy-policy").text-gray Privacy policy

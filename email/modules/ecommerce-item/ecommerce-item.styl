@@ -1,0 +1,41 @@
+@import "../../styles/themes/schemes/general.styl"
+@import "../../styles/mixins.styl"
+
+.ecommerce-item
+  display block
+
+  a
+    color black !important
+    text-decoration none !important
+
+  &__image
+    height 240px !important
+    overflow hidden
+    text-align center
+
+    +m480()
+      height auto !important
+
+    img
+      width 100% !important
+
+      +m480()
+        height auto !important
+        width auto !important
+        max-width 200px !important
+
+
+  &.item-first
+    padding 0 15px 0 30px
+
+  &.item-middle
+    padding 0 15px
+
+  &.item-last
+    padding 0 30px 0 15px
+
+  &.item-first
+  &.item-middle
+  &.item-last
+    +m480()
+      padding 0 20px 0 20px !important

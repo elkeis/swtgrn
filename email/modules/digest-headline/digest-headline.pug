@@ -1,0 +1,24 @@
+include ../../markup/grid
+include ../../atoms/atoms
+
+mixin digest-headline(options)
+  if PROD
+    style: include:stylus digest-headline.styl
+
+  +space(1)
+  //~~// digest-headline module start \~~
+  //———————————————————————————————————————————————
+
+  .digest-headline
+    +h1(options.title).text-bold.digest-headline__title
+    +rowgap(11)
+    
+    +text(options.description).text.bigger
+    +rowgap(15)
+    
+    +dglink(options.link.href, options.link.text)
+    +rowgap(42)
+
+  //———————————————————————————————————————————————
+  //~~\ digest-headline module end   //~~
+  +space(1)

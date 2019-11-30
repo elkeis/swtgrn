@@ -1,0 +1,43 @@
+/*
+  @tab Stroked button
+  @section Dark - Outline settings
+*/ body a.buttonlink.black, body a.buttonlink.gray {
+  /* @editable */ border-radius: 4px !important;
+  /* @editable */ border-width: 1px !important;
+  /* @editable */ border-style: solid !important;
+  /* @editable */ border-color: #9a9a9a !important;
+}
+
+
+/*
+  @tab Stroked button
+  @section Dark - Text settings
+*/ body a.buttonlink.black span, body a.buttonlink.gray span {
+  /* @editable */ color: #9a9a9a !important;
+  /* @editable */ font-size: 15px !important;
+  /* @editable */ line-height: 20px !important;
+  /* @editable */ font-weight: bold !important;
+}
+
+
+
+/*
+  @tab Stroked button
+  @section Bright - Outline settings
+*/ body a.buttonlink.white {
+  /* @editable */ border-radius: 4px !important;
+  /* @editable */ border-width: 1px !important;
+  /* @editable */ border-style: solid !important;
+  /* @editable */ border-color: #ffffff !important;
+}
+
+
+/*
+  @tab Stroked button
+  @section Bright - Text settings
+*/ body a.buttonlink.white span {
+  /* @editable */ color: #ffffff !important;
+  /* @editable */ font-size: 15px !important;
+  /* @editable */ line-height: 20px !important;
+  /* @editable */ font-weight: bold !important;
+}

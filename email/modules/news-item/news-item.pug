@@ -1,0 +1,30 @@
+include ../../markup/grid
+include ../../atoms/atoms
+
+mixin news-item(options)
+  if PROD
+    style: include:stylus news-item.styl
+
+  +space(1)
+  //~~// news-item module start \~~
+  //———————————————————————————————————————————————
+
+  +table(): tr
+    th.news-item&attributes(attributes)
+      .news-item__image
+        +image({src: options.image, alt: options.title, width: '100%'})
+        +rowgap(15)
+
+      +text(options.title)(href="#news-read-more").text.text-bold
+      +rowgap(6)
+
+      +h5(options.description)
+      +rowgap(7)
+
+      +dglink(options.link, "Read more").h5
+      +rowgap(32)
+
+  //———————————————————————————————————————————————
+  //~~\ news-item module end   //~~
+  +space(1)
+

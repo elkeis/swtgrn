@@ -1,0 +1,82 @@
+/*
+  @tab Typography
+  @section Display
+*/ .display {
+  /* @editable */ font-family: "Helvetica", Arial !important;
+  /* @editable */ font-size: 60px !important;
+  /* @editable */ line-height: 65px !important;
+  /* @editable */ letter-spacing: -0.4px !important;
+}
+
+
+/*
+  @tab Typography
+  @section Header 1 (<h1>)
+*/ .h1 {
+  /* @editable */ font-family: "Helvetica", Arial;
+  /* @editable */ font-size: 40px !important;
+  /* @editable */ line-height: 45px !important;
+  /* @editable */ letter-spacing: -0.4px !important;
+}
+
+
+/*
+  @tab Typography
+  @section Header 2 (<h2>)
+*/ .h2 {
+  /* @editable */ font-family: "Helvetica", Arial;
+  /* @editable */ font-size: 30px !important;
+  /* @editable */ line-height: 35px !important;
+  /* @editable */ letter-spacing: 0px !important;
+}
+
+
+/*
+  @tab Typography
+  @section Header 3 (<h3>)
+*/ .h3 {
+  /* @editable */ font-family: "Helvetica", Arial;
+  /* @editable */ font-size: 21px !important;
+  /* @editable */ line-height: 30px !important;
+  /* @editable */ letter-spacing: 0px !important;
+}
+
+
+/*
+  @tab Typography
+  @section Header 4 (<h4>)
+*/ .h4 {
+  /* @editable */ font-family: "Helvetica", Arial;
+  /* @editable */ font-size: 17px !important;
+  /* @editable */ line-height: 25px !important;
+  /* @editable */ letter-spacing: 0px !important;
+}
+
+
+/*
+  @tab Typography
+  @section Header 5 (<h5>)
+*/ .h5 {
+  /* @editable */ font-family: "Helvetica", Arial;
+  /* @editable */ font-size: 15px !important;
+  /* @editable */ line-height: 25px !important;
+}
+
+
+/*
+  @tab Typography
+  @section Header 6 (<h6>)
+*/ .h6 {
+  /* @editable */ font-family: "Helvetica", Arial;
+  /* @editable */ font-size: 13px !important;
+  /* @editable */ line-height: 20px !important;
+}
+
+/*
+  @tab Typography
+  @section Text
+*/ p, .text, .span {
+  /* @editable */ font-family: "Helvetica", Arial;
+  /* @editable */ font-size: 17px !important;
+  /* @editable */ line-height: 25px !important;
+}

@@ -1,0 +1,45 @@
+
+@import "../../styles/themes/schemes/general.styl"
+@import "../../styles/mixins.styl"
+
+.news-item-small
+  display block
+  padding 0 15px 0 30px
+
+  a
+    color black !important
+    text-decoration none !important
+
+  img
+    width 90px
+
+  +m480()
+    padding 0 !important
+
+  a
+    text-decoration none !important
+    line-height 25px !important
+    font-size 17px !important
+
+  &.item-right
+    padding 0 30px 0 15px
+
+    +m480()
+      padding 0 !important
+
+  &__description
+    padding 0 20px
+    line-height 25px !important
+    font-size 17px !important
+    vertical-align top
+    text-decoration none !important
+    color black !important
+
+
+  &__image
+    vertical-align top
+    min-width 90px
+
+    +m480()
+      padding 0 !important
+      line-height 0 !important

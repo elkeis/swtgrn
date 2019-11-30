@@ -1,0 +1,38 @@
+include ../../markup/grid
+include ../../atoms/atoms
+
+mixin footer()
+  if PROD
+    style: include:stylus footer.styl
+
+  +space(1)
+  //~~// Footer module start \\~~
+  //———————————————————————————————————————————————
+
+  +container()
+    +col-1()
+      +rowgap(30)
+      
+      if ESType === "mailchimp"
+        .footer(mc:edit="footer")
+          if block
+            block
+
+      else
+        .footer
+          if block
+            block
+      
+      +rowgap(77)
+
+  //———————————————————————————————————————————————
+  //~~\\ Footer module end //~~
+  +space(1)
+
+
+
+
+//- Example
+  —————————————————————————————————————————————————
+  +footer()
+    p Footer content

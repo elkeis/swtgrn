@@ -1,0 +1,108 @@
+extends ../markup/layout
+
+//- Modules files with mixins
+include ../atoms/atoms
+
+include ../modules/header/header
+include ../modules/digest-title-double/digest-title-double
+include ../modules/section/section
+include ../modules/ecommerce/ecommerce
+include ../modules/footer-mobile-apps/footer-mobile-apps
+include ../modules/footer/footer
+
+//- Grids
+include ../markup/grid
+
+block content
+  +header({
+    transparent: true,
+    image: {
+      src: Tags.company.logo,
+      alt: Tags.company.name,
+      width: Tags.company.logow
+    },
+    links: [
+      {url: "#header-1", text: "Shop"},
+      {url: "#header-2", text: "Sale"},
+      {url: "#header-3", text: "Account"},
+      {url: "#header-4", text: "Contact"}
+    ]
+  })
+
+
+  +digest-title-double({
+    image: "headerphoto-half.jpg",
+    title: "Remotes for Smart Homes",
+    description: "New arrivals",
+    link: {
+      url: "#title-link",
+      text: "See more"
+    }
+  })
+
+
+  +section({
+    title: "Check out <b>23 new products</b> this week",
+    link: {
+      url: "#see-all-ecommerce",
+      text: "See all"
+    }
+  })
+
+
+    +ecommerce({
+      link: {
+        url: "#browse-all",
+        text: "Browse all latest arrivals"
+      },
+      items: [
+        {
+          image: "ecommerce-4.jpg",
+          title: "Ultimate Ears<br />Wireless Speaker",
+          price: "$199.95"
+        },
+        {
+          image: "ecommerce-2.jpg",
+          title: "Roli Lightpad Block",
+          price: "$179.95"
+        },
+        {
+          image: "ecommerce-5.jpg",
+          title: "Siri remote",
+          price: "$155"
+        },
+        {
+          image: "ecommerce-6.jpg",
+          title: "iPad mini Smart Case",
+          price: "$69"
+        },
+        {
+          image: "ecommerce-1.jpg",
+          title: "GoPro HERO5 Session Camera",
+          price: "$299.95"
+        },
+        {
+          image: "ecommerce-3.jpg",
+          title: "Tile Slim Tracker - 2 Pack",
+          price: "$44.95"
+        }
+      ]
+    })
+
+  +footer-mobile-apps({
+    android: {
+      url: "#playmarket-link",
+      image: "playmarket.png"
+    },
+    ios: {
+      url: "#appstore-link",
+      image: "appstore.png"
+    },
+  })
+
+  +footer()
+    p.
+      You received this message because you’re signed up for emails from Local Guides about news and product updates. You may unsubscribe or <a href="#{Tags.message.settings}"><b>update your email preferences</b></a> on the Local Guides settings page.
+    br
+    p.
+      Powered by Great Simple

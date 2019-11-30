@@ -1,0 +1,25 @@
+include ../../markup/grid
+include ../../atoms/atoms
+
+mixin ecommerce-item(options)
+  if PROD
+    style: include:stylus ecommerce-item.styl
+
+  +space(1)
+  //~~// ecommerce-item module start \~~
+  //———————————————————————————————————————————————
+  .ecommerce-item&attributes(attributes)
+    +table(): tr
+      td.ecommerce-item__image
+        +image({src: options.image, alt: options.title, width: ""})
+
+    +rowgap(11)
+
+    +h5(options.title)(href="#item-link")
+    +rowgap(5)
+    +h5(options.price).text-gray
+
+    +rowgap(34)
+  //———————————————————————————————————————————————
+  //~~\ ecommerce-item module end   //~~
+  +space(1)

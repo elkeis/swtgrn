@@ -1,0 +1,38 @@
+include ../../markup/grid
+include ../../atoms/atoms
+
+mixin digest-title-double(options)
+  if PROD
+    style: include:stylus digest-title-double.styl
+
+  +space(1)
+  //~~// digest-title module start \~~
+  //———————————————————————————————————————————————
+
+  +container("wide")
+
+    //- Left column
+    +col-2().digest-title-double
+      +table(): tr
+        th.digest-title-double__info
+          
+          //- Description 
+          +h3(options.description)
+          +rowgap(8)
+
+          //- Title
+          +h1(options.title).text-bold
+          +rowgap(26)
+
+          //- Linkk
+          div(mc:edit="weekly_topic_link")
+            +buttonlink(options.link.url, options.link.text, "black")
+
+
+    //- Image in right column
+    +col-2()(mc:edit="digest_title_double_right").digest-title-double__img
+      +image({src: options.image, alt: options.title, width: "100%"})(height=370)
+
+  //———————————————————————————————————————————————
+  //~~\ digest-title module end   //~~
+  +space(1)

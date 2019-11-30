@@ -1,0 +1,28 @@
+include ../../markup/grid
+include ../../atoms/atoms
+
+mixin weekly-top(options)
+  if PROD
+    style: include:stylus weekly-top.styl
+
+  +space(1)
+  //~~// weekly-top module start \~~
+  //———————————————————————————————————————————————
+  +rowgap(38, 23)
+    
+  +container()
+    +col-1()
+      +table("100%"): tr: td.weekly-top__title
+        +text("Summary").text.bigger
+
+      +table("100%"): tr
+        td.weekly-top__title
+          +h1(options.title).text-bold
+
+        td.weekly-top__title.align-right(mc:edit="weekly_header_link")
+          +buttonlink(options.link.url, options.link.text, "gray")
+
+
+  //———————————————————————————————————————————————
+  //~~\ weekly-top module end   //~~
+  +space(1)

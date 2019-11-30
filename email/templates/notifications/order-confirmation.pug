@@ -1,0 +1,98 @@
+extends ../markup/layout
+
+//- Modules files with mixins
+include ../modules/header/header
+include ../modules/notify-title/notify-title
+include ../modules/section/section
+include ../modules/orders-list/orders-list
+include ../modules/orders-summary/orders-summary
+include ../modules/customer-info/customer-info
+include ../modules/footer/footer
+
+block content
+
+  //- Header module. Object with image and link options
+  +header({
+    image: {
+      src: Tags.company.logo,
+      alt: Tags.company.name,
+      width: Tags.company.logow
+    },
+    link: {
+      href: Tags.message.web,
+      text: "View in browser"
+    }
+  })
+
+
+  //- Title of confirmation. Object with info about order and link to ordes's page in shop
+  +notify-title({
+    orderName:   Tags.order.name,
+    title:       "Thank you for your purchase!",
+    description: `Hi ${Tags.customer.first_name} ${Tags.customer.last_name}, we’re getting your order ready to be shipped. We will notify you when it has been sent.`,
+    
+    link: {
+      text: "View my order",
+      href: Tags.order.link
+    }
+  })
+
+
+  //- Summary information about order: items, price and shipping method
+  +section("Order summary")
+
+    //- List of items in order
+    +orders-list([
+      {
+        image:     "notifications/img-1@2x.png",
+        title:     "HAY Design Outdoor Chair",
+        count:     1,
+        price:     "$409"
+      },
+      {
+        image:     "notifications/img-2@2x.png",
+        title:     "HAY Design Basic Wooden Stool",
+        count:     2,
+        price:     "$578"
+      },
+      {
+        image:     "notifications/img-3@2x.png",
+        title:     "BWO Yellow Lamp",
+        count:     1,
+        price:     "$321",
+        price_old: "$450"
+      }
+    ])
+
+    //- Order's price information
+    +orders-summary({
+      subtotal:     Tags.order.order_price,
+      shipping:     Tags.order.shipping_price,
+      shippingName: Tags.order.shipping_method,
+      total:        Tags.order.total_price
+    })
+
+
+  //- Information about customer
+  +rowgap(28)
+  +section("Customer information")
+    +customer-info({
+      shipping_address: Tags.customer.shipping_address,
+      billing_address:  Tags.customer.billing_address,
+
+      shipping_method: {
+        name:  Tags.order.shipping_method,
+        price: Tags.order.shipping_price
+      },
+
+      payment_method: {
+        name:  Tags.order.payment_method,
+        price: Tags.order.order_price
+      }
+    })
+
+
+  +rowgap(23)
+  +footer()
+    p.h4.text-gray If you have any questions, please reply to this email or contact us at <br/>
+      a.link(href=`mailto:${Tags.company.email}`)= Tags.company.email

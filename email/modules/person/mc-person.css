@@ -1,0 +1,26 @@
+/*
+  @tab Author
+  @section Photo size
+*/ .person_image img {
+  /* @editable */ width: 60px !important;
+}
+
+
+/*
+  @tab Author
+  @section Name
+*/ .person__info .text.text-bold {
+  /* @editable */  font-size: 17px !important;
+  /* @editable */  line-height: 20px !important;
+  /* @editable */  font-weight: bold !important;
+}
+
+
+/*
+  @tab Author
+  @section Position
+*/ .person__info .h5 {
+  /* @editable */  font-size: 15px !important;
+  /* @editable */  line-height: 20px !important;
+  /* @editable */  font-weight: normal !important;
+}

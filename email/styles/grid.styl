@@ -1,0 +1,88 @@
+@import "mixins.styl"
+
+// Container
+container-width = 660px
+
+.container
+  width container-width
+  margin 0 auto;
+  text-align left;
+
+  +m480()
+    width 100% !important
+    margin 0 auto
+
+  // @media (max-width: (container-width + 1))
+  //   padding 0 20px
+
+  &__table
+    table-layout fixed
+    width 100%
+    margin 0 auto
+
+    +m480()
+      width 90% !important
+
+  &.wide
+    +m480()
+      width 100% !important
+      
+    .container__table
+      +m480()
+        width 100% !important
+
+
+
+
+// Columns
+col(size)
+  vertical-align top
+  padding 0
+  width (container-width/size)
+  mso-line-height-rule exactly
+
+  +m480()
+    width 100% !important
+    display block
+  
+th[class="col-xs-half"]
+.col-xs-half
+  +m480()
+    width 50% !important
+    display inline-block
+
+
+th[class="col-1"]
+.col-1
+  col(1)
+
+th[class="col-2"]  
+.col-2
+  col(2)
+
+th[class="col-3"]
+.col-3
+  col(3)
+
+
+
+
+// Different rowgap for desctop and mobile
+.rowgap
+  display block
+
+  +m480()
+    display none !important
+
+
+.rowgap-mobile
+  display none
+
+  +m480()
+    display block !important
+
+
+th
+  font-weight normal
+  text-align left
+  background-color transparent

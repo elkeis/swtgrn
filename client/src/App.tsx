@@ -4,7 +4,7 @@ import {
 } from './containers';
 import { useDataQuery } from './services';
 import { useDispatch } from 'react-redux';
-import { setFetchProductCardsAction, setProductCardsAction, setFetchTags, setTags } from './store';
+import { setFetchProductCardsAction, setProductCardsAction, setTags } from './store';
 
 fetch('/api/heartbeat').then(data => {
     data.json().then(status => {
@@ -30,7 +30,7 @@ const App: React.FC = () => {
 
             dispatch(setTags(data.tags));
         }
-    }, [data, loading])
+    }, [data, loading, dispatch])
 
     console.log(data);
     if (loading) return <h1>загрузка...</h1>;

@@ -1,0 +1,27 @@
+
+include ../../markup/grid
+include ../../atoms/atoms
+
+mixin person(options)
+  if PROD
+    style: include:stylus person.styl
+
+  +space(1)
+  //~~// person module start \~~
+  //———————————————————————————————————————————————
+  +container("wide")
+    +col-1()
+      .person(mc:edit=`person_${options.name}`)
+        +table("auto")
+          tr
+            td.person__image
+              +image({src: options.photo, alt: options.name, width: "60px"})
+
+            td.person__info
+              +text(options.name).text.text-bold
+              +h5(options.info)
+
+  //———————————————————————————————————————————————
+  //~~\ person module end   //~~
+  +space(1)
+

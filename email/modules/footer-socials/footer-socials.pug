@@ -1,0 +1,36 @@
+include ../../markup/grid
+include ../../atoms/atoms
+
+mixin footer-socials(options)
+  if PROD
+    style: include:stylus footer-socials.styl
+
+  - let counter = 0;
+
+  +space(1)
+  //~~// footer-socials module start \~~
+  //———————————————————————————————————————————————
+  +container()
+    +col-1()
+      .footer-socials
+        +rowgap(38)
+
+        if options.title
+          +h1(options.title).text-bold.footer-socials__title
+          +rowgap(38)
+        
+        div(mc:edit=`footer_socials`)
+          +table(): tr
+            each item in options.items 
+              td.footer-socials__icon
+                a(href=item.link): +icon({src: item.icon, alt: "", width: "auto"})
+
+              if counter < options.items.length - 1
+                +colgap(100)
+              - counter++;
+
+        +rowgap(38)
+  +container("wide"): +col-1(): hr
+  //———————————————————————————————————————————————
+  //~~\ footer-socials module end   //~~
+  +space(1)

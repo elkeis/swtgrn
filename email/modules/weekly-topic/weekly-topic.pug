@@ -1,0 +1,25 @@
+include ../../markup/grid
+include ../../atoms/atoms
+
+mixin weekly-topic(options)
+  if PROD
+    style: include:stylus weekly-topic.styl
+
+  +space(1)
+  //~~// weekly-topic module start \~~
+  //———————————————————————————————————————————————
+  +container()
+    +col-1()
+      .weekly-topic
+        +rowgap(23)
+        +table("100%"): tr
+          td
+            +text(options.title).text.bigger.text-white
+            
+          td.weekly-topic__link.align-right(mc:edit="weekly_topic_link")
+            +buttonlink(options.link.url, options.link.text)
+        +rowgap(23)
+
+  //———————————————————————————————————————————————
+  //~~\ weekly-topic module end   //~~
+  +space(1)

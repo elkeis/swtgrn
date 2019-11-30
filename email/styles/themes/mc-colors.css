@@ -1,0 +1,34 @@
+/*
+  @tab Colors
+  @section Accent background color
+*/ .digest-title, .digest-title.bg-golden, .digest-title.no-bg, body .bg-golden {
+  /* @editable */ background-color: #f1c40f !important;
+}
+/*
+  @tab Colors
+  @section Accent text color
+*/ body .text-golden {
+  /* @editable */ color: #f1c40f !important;
+}
+
+/*
+  @tab Colors
+  @section Links background color
+*/ .bg-blue {
+  /* @editable */ background-color: #0d6cf7 !important;
+}
+
+/*
+  @tab Colors
+  @section Links text color
+*/ .text-blue, a.dglink span {
+  /* @editable */ color: auto !important;
+}
+
+/*
+  @tab Colors
+  @section Background color
+*/ body, .main {
+  /* @editable */ background-color: #f8f8f8 !important;
+}
+

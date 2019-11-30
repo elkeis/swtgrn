@@ -1,0 +1,26 @@
+include ../../markup/grid
+include ../../atoms/atoms
+
+mixin footer-mobile-apps(options)
+  if PROD
+    style: include:stylus footer-mobile-apps.styl
+
+  +space(1)
+  //~~// footer-mobile-apps module start \~~
+  //———————————————————————————————————————————————
+  +container("wide")
+    +col-1().footer-mobile-apps
+      +rowgap(40)
+      +table(): tr
+        th.footer-mobile-apps__cell.align-right
+          a(href=options.android.url): +image({src: options.android.image, alt: "Play Market", width: "135"})
+        
+        th.footer-mobile-apps__cell.align-left
+          a(href=options.ios.url): +image({src: options.ios.image, alt: "AppStore", width: "135"})
+      +rowgap(40)
+      
+  +container(): +col-1(): hr
+  
+  //———————————————————————————————————————————————
+  //~~\ footer-mobile-apps module end   //~~
+  +space(1)

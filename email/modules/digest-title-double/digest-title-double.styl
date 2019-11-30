@@ -1,0 +1,48 @@
+@import "../../styles/themes/schemes/general.styl"
+@import "../../styles/mixins.styl"
+
+body .digest-title-double
+  color black
+  text-align center
+  height 370px
+  background-color #0ccb4d
+
+  +m480()
+    height auto !important
+
+  .h3 
+    +m480()
+      font-size 21px !important
+      line-height 30px !important
+
+  .h1
+    +m480()
+      font-size 40px !important
+      line-height 45px !important
+
+.digest-title-double__info
+  height 370px
+  vertical-align middle
+  text-align center
+
+  +m480()
+    width 100% !important
+    height auto
+    padding 70px 0
+
+  a.buttonlink span
+    display inline !important
+
+
+.digest-title-double__img
+  line-height 0
+
+  +m480()
+    height auto !important
+
+  img
+    display block
+    width 100% !important
+
+    +m480()
+      height 360px !important

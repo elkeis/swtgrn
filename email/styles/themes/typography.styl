@@ -1,0 +1,87 @@
+// Typography
+
+/* Mixin for bigger font variations
+  nf - normal font-size
+  nh - normal line-height 
+  bf - bigger font-size
+  bh - bigger line-height
+*/
+bigger(nf, nh, bf, bh)
+  &.bigger
+    font-size bf
+    line-height bh
+
+  &.bigger-lg
+    font-size bf
+    line-height bh
+
+    +m480()
+      font-size nf !important
+      line-height nh !important
+
+  &.bigger-xs
+    font-size nf
+    line-height nh
+
+    +m480()
+      font-size bf !important
+      line-height bh !important
+
+
+
+.display
+  letter-spacing -0.8px
+  font-size 60px
+  line-height 65px
+
+body div.display
+  +m480()
+    font-size 40px !important
+    line-height 45px !important
+
+h1, .h1
+  letter-spacing -0.8px
+  font-size 40px
+  line-height 45px
+  bigger(40px, 45px,   60px, 65px)
+
+h2, .h2
+  letter-spacing -0.6px
+  font-size 30px
+  line-height 30px
+  bigger(30px, 30px,   30px, 35px)
+
+h3, .h3
+  font-size 21px
+  line-height 30px
+  letter-spacing -0.2px
+
+h4, .h4
+  font-size 17px
+  line-height 20px
+  bigger(17px, 20px,   17px, 25px)
+
+h5, .h5
+  font-size 15px
+  line-height 20px
+  bigger(15px, 20px,   15px, 25px)
+
+h6, .h6
+  font-size 13px
+  line-height 20px
+
+p, .text, .span
+  font-size 17px
+  line-height 20px
+  bigger(17px, 20px,   17px, 25px)
+
+
+// Atoms
+.text-bold
+  font-weight bold !important
+
+.strike-through
+  text-decoration line-through !important
+
+.text-underline
+  text-decoration underline !important

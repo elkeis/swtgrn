@@ -1,0 +1,37 @@
+extends ../markup/layout
+
+//- Modules files with mixins
+include ../modules/header/header
+include ../modules/notify-title/notify-title
+include ../modules/section/section
+include ../modules/orders-list/orders-list
+include ../modules/footer/footer
+
+block content
+
+  //- Header module. Object with image and link options
+  +header({
+    image: {
+      src:   Tags.company.logo,
+      alt:   Tags.company.name,
+      width: Tags.company.logow
+    }
+  })
+
+
+  //- Title of confirmation. Object with info about order and link to ordes's page in shop
+  +notify-title({
+    orderName:   Tags.order.name,
+    title:       `Hey, ${Tags.customer.first_name}!`,
+    subtitle:    `It’s awesome you’re with us`,
+    description: `Welcome to our shop, hope you’ll enjoy the experience. The fear of driving is often complicated, if not caused by, the individuals’ automatic negative thoughts. `,
+  })
+
+  +container("wide")
+    +col-1()
+      hr
+
+  +rowgap(23)  
+  +footer()
+    p.h4.text-gray If you have any questions, please reply to this email or contact us at <br/>
+      a.link(href=`mailto:${Tags.company.email}`)= Tags.company.email

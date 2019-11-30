@@ -1,0 +1,102 @@
+@import "../../styles/themes/schemes/general.styl"
+@import "../../styles/mixins.styl"
+
+.header
+  background golden 
+  text-align left
+
+.header__content
+  padding 0 30px
+  
+  +m600()
+    padding 0 30px !important
+
+  +m480()
+    padding 0 !important
+  
+  img
+    width 135px
+
+th[class="header__links"]
+th.header__links
+  width 50%
+  text-align right
+
+  +m480()
+    width 100% !important
+    text-align center !important
+    display block !important
+    width 100% !important
+    text-align center !important
+
+  a
+    text-decoration none
+    color black
+
+
+.header.header--transparent
+  background transparent
+  border-bottom 1px solid rgba(255,255,255,0.2)
+
+.header--centered
+
+  th[class="header__logo"]
+  th[class="header__links"]
+  th.header__logo
+  th.header__links
+    +m480()
+      display block !important
+      width 100% !important
+      text-align center !important
+  
+  th[class="header__logo"]
+  th.header__logo
+    padding-left 30px
+
+    +m480()
+      padding-right 0 !important
+      padding-bottom 0 !important
+      padding-left 0 !important
+  
+  th[class="header__links"]
+  th.header__links
+    text-align right
+
+    +m480()
+      padding-top 16px !important
+      padding-right 0 !important
+      padding-bottom 16px !important
+      padding-left 0 !important
+      text-align center
+
+
+
+.header.header--fullwidth .header__content
+  padding 0
+
+  +m660()
+    padding 0 30px !important
+
+  +m480()
+    padding-top 0 !important
+    padding-right 0 !important
+    padding-bottom 0 !important
+    padding-left 0 !important
+
+
+th[class="header__link"]
+th.header__link
+  width auto
+  min-width 60px
+  text-align right
+  text-align center
+
+  +m480()
+    width auto
+    min-width 60px
+
+body th.header__link.link-single
+  text-align right
+
+  +m480()
+    text-align right

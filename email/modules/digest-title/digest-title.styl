@@ -1,0 +1,32 @@
+@import "../../styles/themes/schemes/general.styl"
+@import "../../styles/mixins.styl"
+
+th[lass="digest-title"]
+.digest-title
+  background-image url("https://greatsimple.github.io/email-assets/digest/headerphoto.png")
+  background-color #f1c40f
+  background-repeat no-repeat
+  background-position center top
+  background-size cover
+  padding 0 30px
+
+  &.no-bg
+    background-image none
+
+  +m480()
+    padding 0 20px !important
+    background-size auto 100% !important
+
+  &__description
+    font-size 30px
+    line-height 1.0
+    font-weight normal
+    letter-spacing -0.4px
+    color white
+
+  &__title
+    letter-spacing -1.6px
+    color white
+
+.digest-title.fullwidth
+  padding 0 !important

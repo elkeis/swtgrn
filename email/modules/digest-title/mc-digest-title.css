@@ -1,0 +1,64 @@
+/*
+  @tab Digest header
+  @section Background
+*/
+.digest-title {
+  /* @editable */ background-color: #f1c40f !important;
+  /* @editable */ background-image: url("https://greatsimple.github.io/email-assets/digest/headerphoto.png") !important;
+  /* @editable */ background-repeat: no-repeat !important;
+  /* @editable */ background-position: center top !important;
+  /* @editable */ background-size: cover !important;
+  /* @editable */ padding: 0 30px !important;
+}
+
+.digest-title.no-bg {
+  /* @editable */ background-image: none !important;
+}
+
+/*
+  @tab Digest header
+  @section Subtitle
+*/ .digest-title__date.h3 {
+  /* @editable */ color: #000000 !important;
+  /* @editable */ font-size: 21px !important;
+}
+
+.digest-title__description.h2 {
+  /* @editable */ color: white !important;
+  /* @editable */ font-size: 21px !important;
+}
+
+
+
+/*
+  @tab Digest header
+  @section Double: left side
+*/ .digest-title-double {
+  /* @editable */ background-color: #0ccb4d !important;
+}
+
+/*
+  @tab Digest header
+  @section Double: left side
+*/ .digest-title-double__info .h1, .digest-title-double__info .h3, .digest-title-double__info a {
+  /* @editable */ color: #1e1e1e !important;
+}
+
+/*
+  @tab Digest header
+  @section Double: right side
+*/ .digest-title-double__img {
+  /* @editable */ background-color: transparent !important;
+  /* @editable */ background-image: auto !important;
+  /* @editable */ background-size: cover !important;
+  /* @editable */ background-repeat: no-repeat !important;
+  /* @editable */ background-position: center center !important;
+}
+
+/*
+  @tab Digest header
+  @section Double: right side
+*/ .digest-title-double .digest-title-double__img * {
+  /* @editable */ color: #1e1e1e !important;
+}
+

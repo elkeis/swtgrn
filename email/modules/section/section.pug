@@ -1,0 +1,55 @@
+include ../../markup/grid
+include ../../atoms/atoms
+
+
+
+mixin section(options)
+  include ../../markup/utils
+
+  //- Styles of the module
+  if PROD
+    style: include:stylus section.styl
+
+  +space(1)
+  //~~// Section module start \\~~
+  //———————————————————————————————————————————————
+
+  +container("wide")
+    +col-1()
+      .section
+        if options && options.title
+          .section-title(mc:edit=`section_title_table_row_${randStr()}`)
+            +table()
+              tr
+                td.section__title
+                  +text(options.title).text.bigger-lg
+
+                if options.socials
+                  each social in options.socials
+                    td.section__extra--social&attributes({"mc:edit": "social__" + social.text})
+                      a(href= social.link).extra-link
+                        +icon({src: social.icon, alt: social.text, width: "14px"})
+                        span.extra-link-text!=social.text
+
+                if options.link
+                  td.section__extra&attributes({"mc:edit": "section-link__" + options.link.text})
+                    +dglink(options.link.url, options.link.text)
+
+
+        // Section content
+        +table()
+          tr: td.section__content
+            if block
+              block
+
+  //———————————————————————————————————————————————
+  //~~\\ Section module end //~~
+  +space(1)
+
+
+
+
+//- Example
+  —————————————————————————————————————————————————
+  +section("Section title")
+    p Section content

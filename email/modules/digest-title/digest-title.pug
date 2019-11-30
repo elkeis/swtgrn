@@ -1,0 +1,42 @@
+include ../../markup/grid
+include ../../atoms/atoms
+
+mixin digest-title(options)
+  if PROD
+    style: include:stylus digest-title.styl
+  - let extraClass = '';
+
+  +space(1)
+  //~~// digest-title module start \~~
+  //———————————————————————————————————————————————
+  if options.background === false
+    - extraClass += " no-bg ";
+
+  +container("wide")
+    +col-1()
+      +table(): tr
+        th.digest-title.bg-golden(class=extraClass)
+          if block
+            block
+
+          +rowgap(options.offset || 166)
+
+          if options.date
+            +h3(options.date).digest-title__date
+            +rowgap(17)
+
+          if options.description
+            +h2(options.description).digest-title__description
+            +rowgap(9)
+
+          if options.title
+            +display(options.title).bigger-lg.text-bold.text-white.display
+
+          if options.subtitle
+            +display(options.subtitle).bigger-lg.text-bold.text-black.display.heading-second
+
+          +rowgap(29)
+
+  //———————————————————————————————————————————————
+  //~~\ digest-title module end   //~~
+  +space(1)

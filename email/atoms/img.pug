@@ -1,0 +1,23 @@
+//- MIXIN img
+  inserts image with email services extensions if needed
+  ~~
+  @param {object} options - attributes of an image
+
+  @example:
+    +image({src: "notifications/logo@2x.png", alt: "Company", width: "124"})
+
+mixin image(options)
+  include ../markup/utils
+
+  - var remoteAssets = ESType === "mailchimp" && PROD ? "" : `https://greatsimple.github.io/email-assets/digest/`;
+
+  if ESType === "mailchimp"
+    - attributes["mc:edit"] = options.alt === "logo" ? options.alt : options.alt + "_" + randStr();
+
+  img(src= remoteAssets + options.src, alt= options.alt, width= options.width || "auto")&attributes(attributes)
+
+
+mixin icon(options)
+  - var remoteAssets = ESType === "mailchimp" && PROD ? "" : `https://greatsimple.github.io/email-assets/digest/`;
+    
+  img(src= remoteAssets + options.src, alt= options.alt, width= options.width || "auto")&attributes(attributes)

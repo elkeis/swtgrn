@@ -1,0 +1,40 @@
+include ../../markup/grid
+include ../../atoms/atoms
+include ../news-item-small/news-item-small
+
+mixin weekly-news(options)
+  if PROD
+    style: include:stylus weekly-news.styl
+
+  - let rowsNum = Math.floor(options.items.length/2)
+  - let i = 0;
+
+  if ESType === "mailchimp"
+    - rowsNum = 1 // Limit rows by 1 for mailchimp repeatable section
+
+  +space(1)
+  //~~// weekly-news module start \~~
+  //———————————————————————————————————————————————
+  +table("100%"): tr
+    td.weekly-news
+      while i < rowsNum
+        +container()(mc:repeatable="weekly_news")
+          if options.items[2*i]
+            +col-2()
+              +news-item-small(options.items[2*i])
+            
+              if i < rowsNum
+                +rowgap(30, 20)
+
+          if options.items[2*i + 1]
+            +col-2()
+              +news-item-small(options.items[2*i + 1]).item-right
+
+              if i < rowsNum - 1
+                +rowgap(30, 20)
+
+        - i++;
+      
+  //———————————————————————————————————————————————
+  //~~\ weekly-news module end   //~~
+  +space(1)

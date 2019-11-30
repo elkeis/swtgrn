@@ -1,0 +1,145 @@
+extends ../markup/layout
+
+//- Modules files with mixins
+include ../atoms/atoms
+include ../modules/header/header
+include ../modules/digest-title/digest-title
+include ../modules/section/section
+include ../modules/person/person
+include ../modules/digest-headline/digest-headline
+include ../modules/news-item/news-item
+include ../modules/charts/charts
+include ../modules/footer-socials/footer-socials
+include ../modules/footer/footer
+
+//- Grids
+include ../markup/grid
+
+block content
+  +digest-title({
+    background: true,
+    title: "Hong Kong",
+    description: "Issue #43"
+  })
+
+    +header({
+      inset: true,
+      fullwidth: true,
+      transparent: true,
+      image: {
+        src: Tags.company.logowhite,
+        alt: Tags.company.name,
+        width: Tags.company.logow
+      }
+    })
+
+  +section({
+    title: "<b>Share</b> the issue:",
+    socials: [
+      {
+        icon: "icon-twitter-small.png",
+        text: "Tweet",
+        link: "#twitter-share-link"
+      },
+      {
+        icon: "icon-facebook-small.png",
+        iconWidth: "17px",
+        text: "Share",
+        link: "#facebook-share-link"
+      }
+    ]
+  })
+
+    //- Section content
+    +rowgap(35)
+    +person({
+      name: "Lenora Marsh",
+      info: "Journalist, Hong Kong lover",
+      photo: "user.png"
+    })
+    +rowgap(32)
+
+    +digest-headline({
+      title: "Iconic Skyline, a Legendary Kitchen, and Lush Nature",
+      description: "For most people, buying a new computer does not have to be as stressful as buying a new car. Nor does it have to be as expensive. If you’re like most people, and you have a limited.",
+      link: {
+        href: "#more-lenora",
+        text: "Check all Lenora's picks"
+      }
+    })
+
+    +container()(mc:repeatable="news_items")
+      +col-2()
+        +news-item({
+          image:       "photo1.png",
+          title:       "Traditional Holidays: Where to Celebrate in Hong Kong",
+          description: "It’s official: you’re hobnobbing with the best the email. ",
+          link:        "#news-preview-1"
+        })
+
+      +col-2()
+        +news-item({
+          image:       "photo2.png",
+          title:       "China Flavoured Brutalism: Architecture in Hong Kong",
+          description: "Have you put any thought into the best places to go when it comes.",
+          link:        "#news-preview-2"
+        }).item-right
+
+
+  +rowgap(30)
+
+  +section({
+    title: "<b>Top</b> charts",
+    link: {
+      href: "#see-all-charts",
+      text: "See all"
+    }
+  })
+
+    +charts({
+      title: "Top 10 Instagram Hotspots<br />in Hong Kong",
+      link: {
+        url: "#more-charts",
+        text: "Continue reading"
+      },
+      items: [
+        {
+          number: 1,
+          image: "preview1.png",
+          title: "Hong Kong’s Garden Hideaway",
+          description: "Few photos can capture the essence of Hong Kong better than those taken at Chi Lin Nunnery in Kowloon. Instagram opportunities unfurl"
+        },
+        {
+          number: 2,
+          image: "preview2.png",
+          title: "Food Too Cute to Eat",
+          description: "Embedded into Hong Kong’s culture like dragon dances and milk tea, Instagram swells with shots of steaming baskets of dim sum"
+        },
+        {
+          number: 3,
+          image: "preview3.png",
+          title: "The Iconic Rainbow Residence",
+          description: "Thickets of high-rise apartments stretch skyward across much of Hong Kong, so skyline shots and neck-craning close-ups both provide fantastic photo fodder."
+        }
+      ]
+    })
+
+
+  +footer-socials({
+    items: [
+      {icon: "icon-twitter.png",   link: "#twitter"},
+      {icon: "icon-instagram.png", link: "#instagram"},
+      {icon: "icon-facebook.png",  link: "#facebook"},
+      {icon: "icon-gplus.png",     link: "#gplus"},
+      {icon: "icon-dribbble.png",  link: "#dribbble"}
+    ]
+  })
+
+  +footer()
+    p: a(href=`${Tags.message.settings}`).text-underline Manage Email Settings
+    p.
+      If you believe this has been sent to you in error, please safely <a href="#{Tags.message.unsubscribe}"><b>unsubscribe</b></a>.
+      For more information, please see our <a href=""><b>privacy policy</b></a>.
+    br
+    p.
+      ©#{Tags.message.date} Great Simple Inc. All Rights Reserved /// 102 5th Ave, Floor 4, New York, NY 10031

@@ -1,0 +1,35 @@
+include ../../markup/grid
+include ../../atoms/atoms
+include ../person/person
+
+mixin weekly-pick(options)
+  if PROD
+    style: include:stylus weekly-pick.styl
+
+  +space(1)
+  //~~// weekly-pick module start \~~
+  //———————————————————————————————————————————————
+  +container()
+    +col-1()
+      .weekly-pick
+        +rowgap(38)
+        +text("Topic").text.bigger
+        +h1("Editor&#8217;s Picks").text-bold.weekly-pick__title
+        +rowgap(18)
+
+        if options.image
+          .weekly-pick__image
+            +image({src: options.image, alt: options.title})
+            +rowgap(29)
+
+        +h2(options.title).bigger.text-bold
+        +rowgap(10)
+
+        if options.description
+          +text(options.description).text.bigger
+
+        +dglink(options.link.url, "  " + options.link.text).text
+
+  //———————————————————————————————————————————————
+  //~~\ weekly-pick module end   //~~
+  +space(1)

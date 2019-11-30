@@ -1,0 +1,22 @@
+@import "../../styles/themes/schemes/general.styl"
+@import "../../styles/mixins.styl"
+
+.weekly-pick
+  display block
+  padding 0 30px
+
+  &__image img 
+    width 100%
+
+  +m480()
+    padding 0 !important
+
+  &__link
+    font-size 17px
+    line-height 20px
+
+
+  &__title
+    +m480()
+      font-size 30px !important
+      line-height 35px !important

@@ -1,0 +1,48 @@
+//- Headings
+mixin h(n, text)
+  include ../markup/utils
+  if attributes.href
+    if ESType === "mailchimp"
+      div(mc:edit=`h${n}__${randStr()}`)
+        a(class=`h${n}`)&attributes(attributes)!= text
+    else
+      a(class=`h${n}`)&attributes(attributes)!= text
+  else
+    if ESType === "mailchimp"
+      div(mc:edit=`h${n}__${randStr()}`)
+        div(class=`h${n}`)&attributes(attributes)!= text
+    else
+      div(class=`h${n}`)&attributes(attributes)!= text
+
+
+
+mixin display(text)
+  include ../markup/utils
+
+  if ESType === "mailchimp"
+    .display(mc:edit=`display__${randStr()}`)&attributes(attributes)!= text
+
+  else
+    .display(class=`h${n}`)&attributes(attributes)!= text
+
+
+
+
+//- For using as +h1(text) or +h2(text) instead of +h(2, text) but with one source
+mixin h1(t)
+  +h(1, t)&attributes(attributes)
+
+mixin h2(t)
+  +h(2, t)&attributes(attributes)
+
+mixin h3(t)
+  +h(3, t)&attributes(attributes)
+
+mixin h4(t)
+  +h(4, t)&attributes(attributes)
+
+mixin h5(t)
+  +h(5, t)&attributes(attributes)
+
+mixin h6(t)
+  +h(6, t)&attributes(attributes)

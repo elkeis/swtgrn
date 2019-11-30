@@ -1,0 +1,15 @@
+/*
+  @tab Numbers
+  @section Photo size
+*/ .charts img {
+  /* @editable */ width: 120px !important;
+}
+
+
+/*
+  @tab Numbers
+  @section Number styles
+*/ .charts__number {
+  /* @editable */ background-color: #ffc000 !important;
+  /* @editable */ color: #222 !important;
+}

@@ -1,5 +1,5 @@
 import { $Tags, $TagsActionTypes, UPDATE_SELECTION, SET_FETCH_TAGS, SET_TAGS, } from "./types";
-import { $CommonActionTypes, FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_FAILURE } from "../types";
+import { $CommonActionTypes } from "../types";
 
 const initialState: $Tags = {
     all: [],

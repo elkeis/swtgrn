@@ -1,0 +1,19 @@
+//- Span
+mixin text(text)
+  include ../markup/utils
+
+  if (attributes.href)
+    if ESType === "mailchimp"
+      div(mc:edit=`text_${randStr()}`)
+        a&attributes(attributes)!= text
+
+    else
+      a&attributes(attributes)!= text
+
+  else
+    if ESType === "mailchimp"
+      div(mc:edit=`text_${randStr()}`)
+        span&attributes(attributes)!= text
+
+    else
+      span&attributes(attributes)!= text

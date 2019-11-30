@@ -1,0 +1,37 @@
+extends ../markup/layout
+
+//- Modules files with mixins
+include ../modules/header/header
+include ../modules/notify-title/notify-title
+include ../modules/section/section
+include ../modules/orders-list/orders-list
+include ../modules/footer/footer
+
+block content
+
+  //- Header module. Object with image and link options
+  +header({
+    image: {
+      src: Tags.company.logo,
+      alt: Tags.company.name,
+      width: Tags.company.logow
+    }
+  })
+
+
+  //- Title of confirmation. Object with info about order and link to ordes's page in shop
+  +notify-title({
+    orderName:   Tags.order.name,
+    title:       `Welcome to`,
+    subtitle:    `Draft Newsletters!`,
+    description: `You activated your customer account. Next time you shop with us, log in for faster checkout.`,
+  })
+
+  +container()
+    +col-1()
+      hr
+
+  +rowgap(23)  
+  +footer()
+    p.h4.text-gray If you have any questions, please reply to this email or contact us at <br/>
+      a.link(href=`mailto:${Tags.company.email}`)= Tags.company.email

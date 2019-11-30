@@ -1,0 +1,26 @@
+
+@import "../../styles/themes/schemes/general.styl"
+@import "../../styles/mixins.styl"
+
+.person
+  padding 0 30px
+  background #ffffff
+
+  &__image
+    img
+      width 60px
+
+  +m480()
+    padding 0 20px !important
+
+  p
+    margin 0
+  
+  &__info
+    padding 10px 15px
+    color black
+
+  &__name
+    font-size 17px
+    line-height 20px
+    font-weight bold

@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const pug = require('pug');
 
 const { 
   ApolloServer, 
@@ -57,6 +58,43 @@ app.get('/api/heartbeat', (req, res) => {
   });
 });
 
+const template = pug.compileFile('./email/templates/digest-ecommerce.pug');
+const opts = {
+  order: {
+    name:            "#9999",
+    link:            "#order-in-shop",
+    shipping_method: "DHL Express",
+    payment_method:  "VISA *-1234",
+    order_price:     "$1,308",
+    shipping_price:  "$249",
+    total_price:     "$1,557"
+  },
+
+  customer: {
+    first_name:       "John",
+    last_name:        "Doe",
+    email:            "john@doe.com",
+    shipping_address: "Steve Shipper, 123 Shipping Street Shippington, Kentucky, K2P0S0 United States",
+    billing_address:  "Bob Biller, 123 Billing Street, Billtown, Kentucky K2P0S0, United States"
+  },
+
+  company: {
+    name:      "AnotherShop",
+    logo:      "logo.png",
+    logowhite: "logo-white.png",
+    logow:     "116",
+    email:     "hello@greatsimple.io"
+  },
+
+  message: {
+    web: "#web",
+    unsubscribe: "#unsubscribe",
+    settings: "#profile-settings",
+    date: "2017"
+  }
+};
+
+console.log(template({Tags: opts}));
 
 app.post('/api/order', (req, res) => {
   console.log(req.body);

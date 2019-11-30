@@ -1,0 +1,117 @@
+@import "../base.styl"
+@import "../mixins.styl"
+@import "schemes/general.styl"
+@import "typography.styl"
+
+// Main
+body
+.main
+  background-color bggray
+  color black
+  -webkit-font-smoothing antialiased
+
+
+// Atomic CSS
+.align-right
+  text-align right
+
+.align-left
+  text-align left
+
+.mobile-align-left
+  +m480()
+    text-align left !important
+
+.mobile-align-right
+  +m480()
+    text-align right !important
+
+.mobile-block
+  +m480()
+    display block !important
+    width 100% !important
+
+.padding-30
+  padding 30px
+
+
+
+// Color atoms
+.text-black
+  color black !important
+
+.text-gray
+  color gray !important
+
+.text-white
+  color white !important
+
+.text-blue
+  color blue !important
+
+.bg-golden
+  background-color golden
+
+.bg-blue
+  color blue
+
+.bg-black
+  background-color black !important
+
+.bg-white
+  background-color #ffffff !important
+
+
+
+
+a.dglink
+  text-decoration none !important
+
+  span
+    padding-right 6.5px
+    font-size 17px
+    color skyblue
+
+.buttonlink
+  text-decoration none !important
+  padding 8px 14px 7px 14px
+  border-radius 4px
+  +m480()
+    padding 8px 16px
+
+  span
+    padding-right 6px
+    @extends .h5
+    @extends .text-bold
+    +m480()
+      display none
+
+  &.black
+    border 1px solid black
+    span
+      color black
+
+  &.gray
+    border 1px solid gray
+    span
+      color gray
+
+  &.white
+    border 1px solid #fff
+    span
+      color #fff
+
+hr
+  margin 0
+  padding 0
+  line-height 0
+  border none
+  border-top 1px solid #e3e3e3;
+
+
+.xs-hide
+th.xs-hide
+[class="xs-hide"]
+th[class="xs-hide"]
+  +m480()
+    display none !important

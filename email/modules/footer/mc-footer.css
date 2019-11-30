@@ -1,0 +1,35 @@
+/*
+  @tab Footer
+  @section Text
+*/ .footer * {
+  /* @editable */ font-family: "Helvetica", Arial !important;
+  /* @editable */ font-size: 13px !important;
+  /* @editable */ line-height: 20px !important;
+  /* @editable */ color: gray !important;
+}
+
+
+/*
+  @tab Footer
+  @section Links
+*/ .footer a {
+  /* @editable */ text-decoration: none !important;
+  /* @editable */ font-family: "Helvetica", Arial !important;
+  /* @editable */ font-size: 13px !important;
+  /* @editable */ line-height: 20px !important;
+  /* @editable */ color: #9a9a9a !important;
+}
+
+/*
+  @tab Footer
+  @section Mobile app links
+*/ .footer-mobile-apps img {
+  /* @editable */ width: 135px !important;
+}
+
+/*
+  @tab Footer
+  @section Social links
+*/ .footer-socials__icon img {
+  /* @editable */ height: 28px !important;
+}

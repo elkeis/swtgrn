@@ -1,0 +1,76 @@
+@import "../../styles/themes/schemes/general.styl"
+@import "../../styles/mixins.styl"
+
+.section
+  background-color #ffffff
+
+  &__content
+    background #ffffff
+
+  p
+    margin 0
+
+
+
+.section__content
+    background #ffffff
+
+.section__extra
+  width 80px
+  height 100%
+  padding 0 30px
+  border-left 1px solid #ebebeb
+  border-bottom 1px solid #ebebeb
+
+  +m480()
+    padding 0 20px !important
+    min-width 80px
+    text-align center
+
+  a.extra-link
+    font-size 17px
+    line-height 25px
+    text-decoration none
+    color black
+    padding-left: 8px;
+
+    +m480()
+      display none !important
+
+
+  .dglink span
+    font-size 17px
+    line-height 25px
+
+
+  &--social
+    width 80px
+    border-left 1px solid #ebebeb
+    border-bottom 1px solid #ebebeb
+    padding 0 30px
+
+    a.extra-link
+      font-size 17px
+      line-height 25px
+      text-decoration none
+      color black
+
+      span
+        padding-left: 8px;
+
+        +m480()
+          display none !important
+
+    +m480()
+      padding 0 !important
+      width 70px !important
+      text-align center !important
+
+
+.section__title
+  border-bottom 1px solid #ebebeb
+  padding 23px 30px
+
+  +m480()
+    padding-left 20px  !important
+    padding-right 20px !important

@@ -1,0 +1,16 @@
+/*
+@tab Big button
+@section Text
+*/ .bigbutton__link {
+  /* @editable */ display: block;
+  /* @editable */ padding: 18px 30px;
+  /* @editable */ text-decoration: none;
+  /* @editable */ background-color: #0d6cf7;
+  /* @editable */ color: #fff;
+  /* @editable */ font-size: 17px;
+  /* @editable */ line-height: 25px;
+  /* @editable */ text-align: center;
+  /* @editable */ font-weight: bold;
+  /* @editable */ border-radius: 6px;
+  /* @editable */ vertical-align: middle;
+}

@@ -1,0 +1,49 @@
+mixin meta()
+  +space(1)
+
+  meta(charset="UTF-8")
+  meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
+  meta(http-equiv="X-UA-Compatible", content="ie=edge")
+  meta(name="viewport", content="width=device-width, initial-scale=1.0")
+  
+  //- Disable ios phone auto-detect styling
+  meta(name="format-detection" content="telephone=no")
+
+  <!--[if !mso]><!-- -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!--<![endif]-->
+  +space(1)
+
+
+
+
+mixin MSO()
+  <!--[if mso]>
+    <xml>
+      <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  <![endif]-->
+
+  <!--[if lte mso 11]>
+    style(type="text/css").
+      .outlook-group-fix {
+        width:100% !important;
+      }
+  <![endif]-->
+
+
+
+
+mixin msoWrapper(width)
+  -
+    const tableWidth = width || 600;
+    const msoWrapStart = `<!--[if (gte mso 9)|(IE)]> <table width="${tablewidth}" align="center"> <tr> <td valign="top" width="${tablewidth}"> <![endif]-->`;
+    const msoWrapEnd   = `<!--[if (gte mso 9)|(IE)]> </td> </tr> </table> <![endif]-->`
+
+  != msoWrapStart
+  if block
+    block
+  != msoWrapEnd
