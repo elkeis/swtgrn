@@ -48,6 +48,8 @@ const resolvers = {
   }
 }
 
+// const renderEmailTemplate = pug.compileFile('./email/templates/digest-ecommerce.pug');
+
 const app = express();
 app.use(bodyParser.json());
 
@@ -98,14 +100,15 @@ console.log(template({Tags: opts}));
 
 app.post('/api/order', (req, res) => {
   console.log(req.body);
+
+  // const email = pug.render(renderEmailTemplate());
+  // console.log(email);
   res.json('ok');
 });
-
 
 // host static files (site and images)
 app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(express.static(path.join(__dirname, 'data')));
-
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
