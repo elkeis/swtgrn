@@ -4,6 +4,8 @@ import {
     SET_URL
 } from './types';
 
+import page from 'page';
+
 const initialState: $UrlState = {
     path: '/'
 }

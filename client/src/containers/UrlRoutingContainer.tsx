@@ -10,10 +10,11 @@ import {
 } from './AdminPanelContainer';
 import { useSelector, useDispatch } from 'react-redux';
 import { $App, $UrlState, setUrl } from '../store';
-
+import { CheckoutFormContainer } from './checkout-form';
 
 const ROOT = '/';
 const ADMIN = '/admin';
+const CHECKOUT = '/checkout';
 
 export interface IUrlRoutingContainer {
 }
@@ -27,6 +28,7 @@ export const UrlRoutingContainer:React.FC<IUrlRoutingContainer> = ({
     useEffect(() => {
         page(ROOT, () => dispatch(setUrl(ROOT)));
         page(ADMIN, () => dispatch(setUrl(ADMIN)));
+        page(CHECKOUT, () => dispatch(setUrl(CHECKOUT)));
         page();
     }, []);
 
@@ -37,7 +39,11 @@ export const UrlRoutingContainer:React.FC<IUrlRoutingContainer> = ({
             container = <NavigationContainer></NavigationContainer>;
             break;
         case ADMIN:
-            container = <AdminPanelContainer></AdminPanelContainer>
+            container = <AdminPanelContainer></AdminPanelContainer>;
+            break;
+        case CHECKOUT:
+            container = <CheckoutFormContainer></CheckoutFormContainer>
+            break;
     }
 
     return <div className="UrlRoutingContainer">

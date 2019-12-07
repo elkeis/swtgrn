@@ -2,12 +2,13 @@ import React from 'react';
 import {
     ProductCardSmall, ShoppingCart, IProductCard
 } from '../components';
-
+import page from 'page';
 
 import {
-    $App, updateProductCard, setShowCheckoutForm
+    $App, updateProductCard, setShowCheckoutForm, setUrl
 } from '../store'
 import { useSelector, useDispatch } from 'react-redux';
+import { AeroButton } from '../components/essentials';
 
 export interface IShoppingCartContainer {
     isSideView? : boolean,
@@ -16,10 +17,7 @@ export interface IShoppingCartContainer {
 export const ShoppingCartContainer:React.FC<IShoppingCartContainer> = ({
     isSideView = false,
 }) => {
-
-
     const productCards = useSelector<$App, Array<IProductCard>>(state => state.productCards.list.filter(card => card.addedCount > 0));
-
     const dispatch = useDispatch();
 
     return <>
@@ -43,5 +41,10 @@ export const ShoppingCartContainer:React.FC<IShoppingCartContainer> = ({
             byCheckout={() => dispatch(setShowCheckoutForm(true))}
         >
         </ShoppingCart>
+        <AeroButton
+            byClick={() => page('/checkout')}
+        >
+            checkout
+        </AeroButton>
     </>
 }

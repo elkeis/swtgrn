@@ -1,0 +1,12 @@
+@import 'src/constants.scss';
+
+.TextButton {
+    >button {
+        height: 56px;
+        outline: none;
+        border: none;
+
+        border-radius: 56px/2;
+        background-color: $OLIVE;
+    }
+}
