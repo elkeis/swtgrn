@@ -71,7 +71,6 @@ $small-button-shadow: 4px 4px 8px #00000019;
 }
 
 .AeroTumbler, .AeroButton, .AeroButtonAdd {
-    // perspective: 512px;
 
     button {
         outline: none;
@@ -117,9 +116,6 @@ $small-button-shadow: 4px 4px 8px #00000019;
 
     &.disabled {
         filter: grayscale(1);
-        > button {
-
-        }
     }
 }
 

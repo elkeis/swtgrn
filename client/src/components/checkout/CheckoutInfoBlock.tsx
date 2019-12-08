@@ -19,7 +19,6 @@ export const CheckoutInfoBlock:React.FC<ICheckoutInfoBlock> = ({
                 key={i}
                 {...input}
             ></TextInput>
-
         ))}
 
         <AeroButton

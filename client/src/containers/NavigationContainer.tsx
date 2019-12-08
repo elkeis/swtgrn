@@ -126,6 +126,14 @@ export const NavigationContainer:React.FC = () => {
                 startingScreen={
                     <i className="logo"></i>
                 }
+
+                checkoutForm={
+                    <CheckoutFormContainer></CheckoutFormContainer>
+                }
+
+                shoppingCart={
+                    <ShoppingCartContainer></ShoppingCartContainer>
+                }
             >
         </Layout>
     </>
