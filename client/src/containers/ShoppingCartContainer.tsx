@@ -44,7 +44,7 @@ export const ShoppingCartContainer:React.FC<IShoppingCartContainer> = ({
         <AeroButton
             byClick={() => page('/checkout')}
         >
-            checkout
+            <i className="shopping-bag"></i>
         </AeroButton>
     </>
 }
